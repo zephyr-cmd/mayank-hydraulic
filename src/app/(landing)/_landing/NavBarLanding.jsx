@@ -33,7 +33,7 @@ const NavBar = () => {
 
             <div className="flex flex-col gap-1 sm:gap-2 px-4 sm:border-black sm:border-r-2 items-center">
               <p className="text-black text-lg md:text-2xl ">
-                Mayank Hydraulics
+                Mayank Hydraulic
               </p>
               <p className="flex text-black gap-1 items-center">
                 <CheckCircledIcon />

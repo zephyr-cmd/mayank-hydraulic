@@ -53,7 +53,7 @@ const specialties = [
 ];
 
 const generateHref = (title) => {
-  return `products/${title.replace(/\s+/g, "-").toLowerCase()}`;
+  return `#products/${title.replace(/\s+/g, "-").toLowerCase()}`;
 };
 
 function Specialities() {
