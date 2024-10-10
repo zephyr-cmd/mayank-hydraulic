@@ -126,7 +126,7 @@ export default function Footer() {
           <div className=" text-sm">
             <p>
               © 2024 Mayank Hydraulic All Rights Reserved.&nbsp;
-              <Link className="text-blue-700" href="#">
+              <Link className="text-blue-700" href="/terms-of-use">
                 (Terms of Use)
               </Link>
             </p>

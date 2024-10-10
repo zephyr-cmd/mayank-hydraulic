@@ -15,10 +15,10 @@ export default function TermsAndConditions() {
           {/* Right Side - Accordions */}
           <div className="py-2 max-w-4xl">
             <p className="mb-6">
-              This document outlines the terms and conditions{" "}
+              This document outlines the terms and conditions&nbsp;
               <strong>Agreement</strong> for the purchase and use of hydraulic
-              components provided by Mayank Hydraulic
-              <strong>Seller</strong>. By placing an order, the customer
+              components provided by Mayank Hydraulic&nbsp;
+              <strong>Seller</strong>. By placing an order, the customer&nbsp;
               <strong>Buyer</strong> agrees to comply with the following terms.
             </p>
 

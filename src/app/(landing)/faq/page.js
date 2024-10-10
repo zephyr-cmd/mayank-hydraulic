@@ -61,7 +61,7 @@ export default function FAQ() {
                     <AccordionTrigger className="font-poppins text-lg font-medium text-black text-left">
                       {service.question}
                     </AccordionTrigger>
-                    <AccordionContent className="font-poppins text-lg font-medium text-black">
+                    <AccordionContent className="font-poppins text-base font-medium text-gray-700">
                       {service.answer}
                     </AccordionContent>
                   </AccordionItem>
