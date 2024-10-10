@@ -59,8 +59,14 @@ const generateHref = (title) => {
 function Specialities() {
   return (
     <section className="min-h-fit w-full py-12 bg-gradient-to-br from-black to-neutral-950 flex flex-col gap-2 items-center justify-center">
-      <p className="bg-gradient-to-r from-gray-50 via-gray-100 to-indigo-400 text-transparent bg-clip-text text-center font-bold text-3xl sm:text-5xl  leading-tight tracking-tighter">
+      <p className="bg-gradient-to-r from-blue-700  to-indigo-400 text-transparent bg-clip-text text-center font-bold text-3xl sm:text-5xl  leading-tight tracking-tighter">
         Most Popular Products
+      </p>
+      <p className="text-white mt-4 text-center">
+        At M/s Mayank Hydraulic, we are proud to be an Authorized Wholesale
+        Dealer, Retailer, Trader, and Supplier, offering a wide range of
+        products including Hydraulic Pumps, Hydraulic Valves, Piston Pumps,
+        Servo Valves, and more.
       </p>
       <div className="container mx-auto flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 md:gap-8 md:p-20">
         {specialties.map((specialty, index) => (

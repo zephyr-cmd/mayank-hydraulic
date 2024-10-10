@@ -24,7 +24,7 @@ export function Parallex() {
   }, [state.message]);
 
   return (
-    <div className=" w-full bg-fixed bg-center bg-no-repeat bg-cover min-h-[350px] relative bg-[url('/manInBlack.jpg')]">
+    <div className=" w-full bg-fixed bg-center bg-no-repeat bg-cover min-h-[350px] relative bg-[url('/sales-consultation.jpg')]">
       <div className="absolute min-h-full w-full bg-black/60" />
       <div className="absolute w-full min-h-full flex flex-col justify-center items-center">
         <div className="container mx-auto">

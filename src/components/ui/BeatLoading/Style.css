@@ -1,8 +1,8 @@
 .loading svg polyline {
   fill: none;
   stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  strokelinecap: round;
+  strokelinejoin: round;
 }
 
 .loading svg polyline#back {

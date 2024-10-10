@@ -27,15 +27,15 @@ export default function Footer() {
             </p>
             <div className="flex flex-col mt-3 gap-y-2">
               <Link
-                href={"mailto:info@example.in"}
-                aria-label="mail to : info@example.in"
+                href={"mailto:mayankhydraulic2000@gmail.com"}
+                aria-label="mail to : mayankhydraulic2000@gmail.com"
                 className="flex flex-row gap-2 items-center"
               >
                 <EnvelopeClosedIcon
                   className="h-5 w-5"
                   textcolor="fill-white"
                 />
-                info@example.in
+                mayankhydraulic2000@gmail.com
               </Link>
               <Link
                 href={"tel:+91xxxxxxxxx"}
@@ -144,13 +144,17 @@ export default function Footer() {
           </div> */}
           <div className="flex flex-row space-x-4 mt-2 items-center">
             <Link
-              href="https://www.facebook.com/example.in/"
+              href="https://www.facebook.com/profile.php?id=61553121369711"
               aria-label="Facebook"
               target="_blank"
             >
               <FacebookIcon className="h-5 w-5" textcolor="fill-white" />
             </Link>
-            <Link href="#" aria-label="Instagram" target="_blank">
+            <Link
+              href="https://www.instagram.com/mayank_hydraulic"
+              aria-label="Instagram"
+              target="_blank"
+            >
               <InstagramIcon className="h-5 w-5" textcolor="fill-white" />
             </Link>
             <Link

@@ -1,8 +1,10 @@
-import Image from "next/image";
-import React from "react";
+"use client";
 
-export default function ContactCard() {
+import { useState } from "react";
+
+const BestDealForm = () => {
   const countryCodes = [
+    { name: "India", flag: "🇮🇳", code: "IN", dial_code: "+91" },
     { name: "Afghanistan", flag: "🇦🇫", code: "AF", dial_code: "+93" },
     { name: "Åland Islands", flag: "🇦🇽", code: "AX", dial_code: "+358" },
     { name: "Albania", flag: "🇦🇱", code: "AL", dial_code: "+355" },
@@ -12,7 +14,12 @@ export default function ContactCard() {
     { name: "Angola", flag: "🇦🇴", code: "AO", dial_code: "+244" },
     { name: "Anguilla", flag: "🇦🇮", code: "AI", dial_code: "+1264" },
     { name: "Antarctica", flag: "🇦🇶", code: "AQ", dial_code: "+672" },
-    { name: "Antigua and Barbuda", flag: "🇦🇬", code: "AG", dial_code: "+1268" },
+    {
+      name: "Antigua and Barbuda",
+      flag: "🇦🇬",
+      code: "AG",
+      dial_code: "+1268",
+    },
     { name: "Argentina", flag: "🇦🇷", code: "AR", dial_code: "+54" },
     { name: "Armenia", flag: "🇦🇲", code: "AM", dial_code: "+374" },
     { name: "Aruba", flag: "🇦🇼", code: "AW", dial_code: "+297" },
@@ -94,7 +101,12 @@ export default function ContactCard() {
     { name: "Denmark", flag: "🇩🇰", code: "DK", dial_code: "+45" },
     { name: "Djibouti", flag: "🇩🇯", code: "DJ", dial_code: "+253" },
     { name: "Dominica", flag: "🇩🇲", code: "DM", dial_code: "+1767" },
-    { name: "Dominican Republic", flag: "🇩🇴", code: "DO", dial_code: "+1849" },
+    {
+      name: "Dominican Republic",
+      flag: "🇩🇴",
+      code: "DO",
+      dial_code: "+1849",
+    },
     { name: "Ecuador", flag: "🇪🇨", code: "EC", dial_code: "+593" },
     { name: "Egypt", flag: "🇪🇬", code: "EG", dial_code: "+20" },
     { name: "El Salvador", flag: "🇸🇻", code: "SV", dial_code: "+503" },
@@ -153,7 +165,6 @@ export default function ContactCard() {
     { name: "Hong Kong", flag: "🇭🇰", code: "HK", dial_code: "+852" },
     { name: "Hungary", flag: "🇭🇺", code: "HU", dial_code: "+36" },
     { name: "Iceland", flag: "🇮🇸", code: "IS", dial_code: "+354" },
-    { name: "India", flag: "🇮🇳", code: "IN", dial_code: "+91" },
     { name: "Indonesia", flag: "🇮🇩", code: "ID", dial_code: "+62" },
     {
       name: "Iran, Islamic Republic of Persian Gulf",
@@ -234,7 +245,12 @@ export default function ContactCard() {
     { name: "Nauru", flag: "🇳🇷", code: "NR", dial_code: "+674" },
     { name: "Nepal", flag: "🇳🇵", code: "NP", dial_code: "+977" },
     { name: "Netherlands", flag: "🇳🇱", code: "NL", dial_code: "+31" },
-    { name: "Netherlands Antilles", flag: "", code: "AN", dial_code: "+599" },
+    {
+      name: "Netherlands Antilles",
+      flag: "",
+      code: "AN",
+      dial_code: "+599",
+    },
     { name: "New Caledonia", flag: "🇳🇨", code: "NC", dial_code: "+687" },
     { name: "New Zealand", flag: "🇳🇿", code: "NZ", dial_code: "+64" },
     { name: "Nicaragua", flag: "🇳🇮", code: "NI", dial_code: "+505" },
@@ -338,7 +354,12 @@ export default function ContactCard() {
     { name: "Eswatini", flag: "🇸🇿", code: "SZ", dial_code: "+268" },
     { name: "Sweden", flag: "🇸🇪", code: "SE", dial_code: "+46" },
     { name: "Switzerland", flag: "🇨🇭", code: "CH", dial_code: "+41" },
-    { name: "Syrian Arab Republic", flag: "🇸🇾", code: "SY", dial_code: "+963" },
+    {
+      name: "Syrian Arab Republic",
+      flag: "🇸🇾",
+      code: "SY",
+      dial_code: "+963",
+    },
     { name: "Taiwan", flag: "🇹🇼", code: "TW", dial_code: "+886" },
     { name: "Tajikistan", flag: "🇹🇯", code: "TJ", dial_code: "+992" },
     {
@@ -352,7 +373,12 @@ export default function ContactCard() {
     { name: "Togo", flag: "🇹🇬", code: "TG", dial_code: "+228" },
     { name: "Tokelau", flag: "🇹🇰", code: "TK", dial_code: "+690" },
     { name: "Tonga", flag: "🇹🇴", code: "TO", dial_code: "+676" },
-    { name: "Trinidad and Tobago", flag: "🇹🇹", code: "TT", dial_code: "+1868" },
+    {
+      name: "Trinidad and Tobago",
+      flag: "🇹🇹",
+      code: "TT",
+      dial_code: "+1868",
+    },
     { name: "Tunisia", flag: "🇹🇳", code: "TN", dial_code: "+216" },
     { name: "Turkey", flag: "🇹🇷", code: "TR", dial_code: "+90" },
     { name: "Turkmenistan", flag: "🇹🇲", code: "TM", dial_code: "+993" },
@@ -365,7 +391,12 @@ export default function ContactCard() {
     { name: "Tuvalu", flag: "🇹🇻", code: "TV", dial_code: "+688" },
     { name: "Uganda", flag: "🇺🇬", code: "UG", dial_code: "+256" },
     { name: "Ukraine", flag: "🇺🇦", code: "UA", dial_code: "+380" },
-    { name: "United Arab Emirates", flag: "🇦🇪", code: "AE", dial_code: "+971" },
+    {
+      name: "United Arab Emirates",
+      flag: "🇦🇪",
+      code: "AE",
+      dial_code: "+971",
+    },
     { name: "United Kingdom", flag: "🇬🇧", code: "GB", dial_code: "+44" },
     { name: "United States", flag: "🇺🇸", code: "US", dial_code: "+1" },
     { name: "Uruguay", flag: "🇺🇾", code: "UY", dial_code: "+598" },
@@ -395,128 +426,111 @@ export default function ContactCard() {
     { name: "Zambia", flag: "🇿🇲", code: "ZM", dial_code: "+260" },
     { name: "Zimbabwe", flag: "🇿🇼", code: "ZW", dial_code: "+263" },
   ];
+  const [selectedCountry, setSelectedCountry] = useState("+91");
+
+  const handleCountryChange = (e) => {
+    setSelectedCountry(e.target.value);
+  };
 
   return (
-    <div className="gap-10">
-      <div className="relative w-full bg-gradient-to-r from-gray-50 to-gray-100 grid gap-0 pt-[100px]">
-        {/* Image container */}
-        <div className="absolute inset-0 h-[500px]">
-          <Image
-            src="/about-us.png"
-            alt="About Us Background"
-            fill
-            className="object-cover"
-            priority={true}
-            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
-          />
-        </div>
-
-        {/* Black overlay with transparency */}
-        <div className="absolute inset-0 h-[500px] bg-black/40"></div>
-
-        {/* Content container */}
-        <div className="relative grid w-full text-center h-[400px] justify-center items-center px-4 space-y-2 lg:pt-24 lg:space-y-4 gap-5">
-          <h2 className="text-3xl font-extrabold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-gray-100">
-            Contact Us
+    <div className="bg-gray-100 p-8">
+      <div className="bg-white shadow-lg flex flex-col-reverse sm:flex-row container mx-auto rounded-lg p-8">
+        {/* Form Section */}
+        <div className="p-8 my-2 sm:my-0 w-full sm:w-2/3 rounded-lg">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">
+            Save time! Get the best deal
           </h2>
-          <p className="text-lg text-gray-300">
-            Advance your operations by investing in the right technology
-          </p>
-        </div>
-      </div>
 
-      <div className="container mx-auto py-10 px-10 h-full pt[500px]">
-        {/* Flex container to ensure both sections take equal height */}
-        <div className="flex flex-col sm:flex-row sm:justify-between w-full gap-6 h-full items-center">
-          {/* Company Details - Ensure this takes full height */}
-          <div className="bg-gray-100 sm:bg-transparent p-6 rounded-lg sm:rounded-none shadow-lg sm:shadow-none sm:w-1/2 gap-3 h-full w-full flex flex-col">
-            <h2 className="text-2xl font-bold mb-4">Company Details</h2>
-            <p>
-              <strong>Name of CEO:</strong> Anupam Sengar
-            </p>
-            <p>
-              <strong>Mobile Number:</strong> +91 9876543210
-            </p>
-            <p>
-              <strong>Address:</strong> H. No. 278, Gali No. 6 Charan Singh
-              Colony, Vijay Nagar, Ghaziabad Uttar Pradesh, 201009, INDIA
-            </p>
-          </div>
-
-          {/* Contact Us Form */}
-          <div className="bg-white p-6 rounded-lg shadow-lg sm:w-1/2 h-full flex flex-col">
-            <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-            <form className="space-y-4 flex-grow">
-              <div className="flex flex-col md:flex-row gap-5">
+          <div className="space-y-4">
+            {/* Country Code and Name Fields */}
+            <div className="flex flex-col md:flex-row gap-5 w-full">
+              <div className="flex  items-center border border-gray-300 rounded-lg p-2 w-full md:w-1/2 focus-within:border-blue-500">
                 {/* Country Code Dropdown */}
-                <div className="w-full md:w-1/3">
-                  <label className="mb-1 font-semibold" htmlFor="countryCode">
-                    Country Code
-                  </label>
-                  <select
-                    id="countryCode"
-                    defaultValue="+91"
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500"
-                  >
-                    {countryCodes.map((country) => (
-                      <option key={country.code} value={country.dial_code}>
-                        {country.flag} {country.name} ({country.dial_code})
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                <select
+                  id="countryCode"
+                  value={selectedCountry}
+                  onChange={handleCountryChange}
+                  className="bg-transparent focus:outline-none appearance-none pr-2 w-1/4"
+                >
+                  {countryCodes.map((country) => (
+                    <option key={country.code} value={country.dial_code}>
+                      {country.flag} {country.name} ({country.dial_code})
+                    </option>
+                  ))}
+                </select>
 
-                {/* Contact Number */}
-                <div className="w-full md:w-2/3">
-                  <label className="mb-1 font-semibold" htmlFor="contactNumber">
-                    Contact Number
-                  </label>
+                {/* Separator Line */}
+                <span className="mx-2 text-gray-400">|</span>
+
+                {/* Conditional Input: Mobile number for India, email for others */}
+                {selectedCountry === "+91" ? (
                   <input
                     type="tel"
                     id="contactNumber"
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500"
-                    placeholder="Enter your contact number"
+                    placeholder="Enter your mobile number"
+                    className="bg-transparent focus:outline-none w-full"
                     required
                   />
-                </div>
+                ) : (
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    className="bg-transparent focus:outline-none w-full"
+                    required
+                  />
+                )}
               </div>
 
-              {/* Description */}
-              <div>
-                <label
-                  className="block mb-1 font-semibold"
-                  htmlFor="description"
-                >
-                  Description
-                </label>
-                <textarea
-                  id="description"
-                  rows="4"
-                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500"
-                  placeholder="Describe your inquiry..."
-                  required
-                ></textarea>
-              </div>
+              {/* Name Input */}
+              <input
+                type="text"
+                placeholder="Enter your name:"
+                className="border border-gray-300 rounded-lg p-2 w-full md:w-1/2"
+              />
+            </div>
 
-              {/* Submit Button */}
+            {/* Product/Service Input */}
+            <div>
+              <input
+                type="text"
+                placeholder="Enter Required Product/Service:"
+                className="border border-gray-300 rounded-lg p-2 w-full"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <div>
+              <button className="bg-red-700 text-white font-semibold px-6 py-2 rounded-lg">
+                Submit Requirement
+              </button>
+            </div>
+
+            {/* Footer Note */}
+            <div>
+              <p className="text-xs text-gray-500">
+                Your information is safe with us.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side Decorative Section */}
+        <div className="bg-red-600 relative w-full sm:w-1/3 p-2 rounded-lg flex items-center justify-center">
+          <div className="bg-red-400 p-4 text-white text-center rounded-s-full flex flex-row items-center gap-1">
+            <div className="size-4 bg-red-600 rounded-full mr-2"></div>
+            <div className="flex flex-row gap-4 items-center">
+              <div className="text-xl font-bold">Get</div>
               <div>
-                <button
-                  type="submit"
-                  className="w-full p-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
-                >
-                  Contact Now
-                </button>
+                <div className="text-2xl font-bold">Best </div>
+                <div className="text-2xl font-bold"> Deal</div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-// export default ContactCard;
-
-// <main >
-//   contact us
-// </main>
+export default BestDealForm;

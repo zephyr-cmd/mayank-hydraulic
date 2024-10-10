@@ -1,16 +1,20 @@
-import { FeedBackCarousel } from "./(landing)/_landing/feedBackCarousel";
-import Footer from "./(landing)/_landing/Footer";
-import Header from "./(landing)/_landing/Header";
-import HeaderCarousel from "./(landing)/_landing/HeaderCarousel";
-import { Parallex } from "./(landing)/_landing/parallex";
-import Specialities from "./(landing)/_landing/Specialities";
+import CompanyInfo from "@/app/(landing)/_landing/CompanyInfo";
+import { FeedBackCarousel } from "@/app/(landing)/_landing/feedBackCarousel";
+import Footer from "@/app/(landing)/_landing/Footer";
+import HeaderCarousel from "@/app/(landing)/_landing/HeaderCarousel";
+import HeroSection from "@/app/(landing)/_landing/HeroSection";
+import NavBar from "@/app/(landing)/_landing/NavBarLanding";
+import { Parallex } from "@/app/(landing)/_landing/parallex";
+import Specialities from "@/app/(landing)/_landing/Specialities";
 
 export default function Home() {
   return (
     <main className="flex flex-col justify-center bg-white text-black dark:bg-black dark:text-white items-center w-full min-h-screen">
-      <HeaderCarousel />
-      {/* <Header /> */}
+      {/* <HeaderCarousel /> */}
+      <NavBar />
+      <HeroSection />
       <Specialities />
+      <CompanyInfo />
       <FeedBackCarousel />
       <Parallex />
       <Footer />
