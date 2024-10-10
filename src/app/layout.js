@@ -3,12 +3,12 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata = {
-//   title:
-//     "Sarvanjana Hospital Rishikesh | Best 24/7 Multispeciality Services in Nepali Farm, Rishikesh, Raiwala",
-//   description:
-//     "Sarvanjana Hospital in Rishikesh offers 24/7 Multi-Specialty services & emergency care for residents & Tourists of Rishikesh & Raiwala. Visit us for comprehensive care.",
-// };
+export const metadata = {
+  title:
+    "Mayank Hydraulics| Hydraulic Piston Pump Manufacturer, Axial Piston Motor Supplier ",
+  description:
+    "An Authorized Wholesale Dealer, Retailer, Trader, and Supplier, offering a wide range of products including Hydraulic Pumps, Hydraulic Valves, Piston Pumps, Servo Valves, and more.",
+};
 
 export default function RootLayout({ children }) {
   return (
