@@ -3,6 +3,7 @@ import React from "react";
 
 export default function ContactCard() {
   const countryCodes = [
+    { name: "India", flag: "🇮🇳", code: "IN", dial_code: "+91" },
     { name: "Afghanistan", flag: "🇦🇫", code: "AF", dial_code: "+93" },
     { name: "Åland Islands", flag: "🇦🇽", code: "AX", dial_code: "+358" },
     { name: "Albania", flag: "🇦🇱", code: "AL", dial_code: "+355" },
@@ -153,7 +154,6 @@ export default function ContactCard() {
     { name: "Hong Kong", flag: "🇭🇰", code: "HK", dial_code: "+852" },
     { name: "Hungary", flag: "🇭🇺", code: "HU", dial_code: "+36" },
     { name: "Iceland", flag: "🇮🇸", code: "IS", dial_code: "+354" },
-    { name: "India", flag: "🇮🇳", code: "IN", dial_code: "+91" },
     { name: "Indonesia", flag: "🇮🇩", code: "ID", dial_code: "+62" },
     {
       name: "Iran, Islamic Republic of Persian Gulf",
@@ -502,9 +502,9 @@ export default function ContactCard() {
               <div>
                 <button
                   type="submit"
-                  className="w-full p-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
+                  className="w-full p-2 bg-blue-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
                 >
-                  Contact Now
+                  Submit
                 </button>
               </div>
             </form>

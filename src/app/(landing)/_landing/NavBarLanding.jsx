@@ -86,8 +86,8 @@ const NavBar = () => {
           </div>
           <div className="hidden md:flex flex-col lg:flex-row gap-1 space-x-6 text-sm">
             <Link
-              href={"tel:+91xxxxxxxxx"}
-              aria-label="Phone Number +91-xxxxxx"
+              href={"tel:+918826381983"}
+              aria-label="Phone Number +91-8826381983"
               className="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition shadow-md"
             >
               <svg

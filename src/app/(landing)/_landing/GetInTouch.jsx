@@ -43,14 +43,13 @@ const GetInTouch = () => {
 
             {/* Buttons */}
             <div className="flex space-x-2">
-              <button className="flex items-center space-x-2 border border-red-600 text-red-600 px-4 py-2 rounded-md hover:bg-red-600 hover:text-white">
-                <Link
-                  href={"tel:+91xxxxxxxxx"}
-                  aria-label="Phone Number +91-xxxxxx"
-                >
-                  Call Us
-                </Link>
-              </button>
+              <Link
+                className="flex items-center space-x-2 border border-red-600 text-red-600 px-5 py-2 rounded-md hover:bg-red-600 hover:text-white"
+                href={"tel:+918826381983"}
+                aria-label="Phone Number +91-8826381983"
+              >
+                Call Us
+              </Link>
               <button className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">
                 Get Quote
               </button>

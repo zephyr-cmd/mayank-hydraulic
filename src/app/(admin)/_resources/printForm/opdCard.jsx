@@ -24,12 +24,12 @@ function OpdCard(props) {
           <h5> Near Railway Crossing, Khadri Road Shyampur</h5>
           <h5>Rishikesh 249204, Uttrakhand</h5>
           <div>
-            <Link href={"tel:+911353152695"}>
-              <strong className="text-lg">☎️</strong> &nbsp; +91-1353152695
+            <Link href={"tel:+918826381983"}>
+              <strong className="text-lg">☎️</strong> &nbsp; +91-8826381983
             </Link>
-            {/* <Link href={"tel:+918266028116"}>
+            {/* <Link href={"tel:+918826381983"}>
               {" "}
-              &nbsp;/ &nbsp; +918266028116
+              &nbsp;/ &nbsp; +918826381983
             </Link> */}
           </div>
         </div>

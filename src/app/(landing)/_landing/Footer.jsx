@@ -38,12 +38,12 @@ export default function Footer() {
                 mayankhydraulic2000@gmail.com
               </Link>
               <Link
-                href={"tel:+91xxxxxxxxx"}
-                aria-label="Phone Number +91-xxxxxx"
+                href={"tel:+918826381983"}
+                aria-label="Phone Number +91-8826381983"
                 className="flex flex-row gap-2 items-center"
               >
                 <MobileIcon className="h-5 w-5" textcolor="fill-white" />
-                +91-XXXXXXXXXX
+                +91-8826381983
               </Link>
             </div>
           </div>
