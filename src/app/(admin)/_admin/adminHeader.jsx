@@ -27,9 +27,9 @@ export function AdminHeader() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            className="rounded-full border border-slate-200  mt-1 w-10 h-10 dark:border-slate-800"
+            className="rounded-full border border-slate-500  mt-1 w-10 h-10 dark:border-slate-800"
             size="icon"
-            variant="ghost"
+            variant="link"
           >
             <Image
               alt="Avatar"

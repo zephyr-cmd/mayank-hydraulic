@@ -40,8 +40,8 @@ const Login = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Image
             className="mx-auto h-10 w-auto"
-            src="/logo.jpg"
-            alt="company logo"
+            src="/mhlogopng.png"
+            alt="Mayank Hydraulics Company logo"
             width={1200}
             height={50}
           />

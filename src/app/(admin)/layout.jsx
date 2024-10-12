@@ -59,7 +59,7 @@ function LayoutRoutesComponent({ children }) {
       {/* Menu Bar */}
       <header>
         <div
-          className="flex fixed z-20 h-14 lg:h-[60px] items-center gap-4 w-full border-b bg-gray-100/70 px-6 dark:bg-white/90
+          className="flex fixed z-20 h-14 lg:h-[60px] items-center gap-4 w-full border-b bg-gray-100/70 px-6 dark:bg-black
          dark:text-white duration-700"
         >
           <div className="flex w-full justify-between items-center">

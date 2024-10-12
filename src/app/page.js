@@ -6,6 +6,8 @@ import HeroSection from "@/app/(landing)/_landing/HeroSection";
 import NavBar from "@/app/(landing)/_landing/NavBarLanding";
 import { Parallex } from "@/app/(landing)/_landing/parallex";
 import Specialities from "@/app/(landing)/_landing/Specialities";
+import WhatsAppButton from "@/app/(landing)/_landing/WhatsAppCTA";
+import MobileTabBar from "@/app/(landing)/_landing/MobileTabBar";
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
       <FeedBackCarousel />
       <Parallex />
       <Footer />
+      <WhatsAppButton />
+      <MobileTabBar />
     </main>
   );
 }

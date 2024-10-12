@@ -173,6 +173,19 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+        <div className="border-t border-gray-700 mt-8 pt-5 flex flex-col-reverse gap-7 md:flex-row lg:px-8 justify-between items-center text-sm lg:text-lg mx-5">
+          <p className="text-sm">
+            <span className="font-semibold">Disclaimer:</span> Mayank Hydraulics
+            is an independent distributor and not an authorized partner or
+            representative of Bosch Rexroth. Any mention of Bosch Rexroth or
+            related brand names is for identification and informational purposes
+            only. We supply products compatible with Bosch Rexroth systems, but
+            we are not involved in the manufacturing of these items, nor do we
+            claim any direct association with Bosch Rexroth. All trademarks,
+            logos, and product names displayed on this website are the property
+            of their respective owners.
+          </p>
+        </div>
       </div>
     </footer>
   );
