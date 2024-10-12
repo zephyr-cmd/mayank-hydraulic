@@ -25,7 +25,7 @@ export default function AboutUs() {
         {/* Content container */}
         <div className="relative grid w-full text-center  h-[250px] sm:h-[400px] justify-center items-center px-4 space-y-2 lg:pt-24 lg:space-y-4 gap-5">
           <h2 className="text-3xl font-extrabold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-gray-100">
-            Contact Us
+            About Us
           </h2>
           <p className="text-lg text-gray-200">
             Advance your operations by investing in the right technology

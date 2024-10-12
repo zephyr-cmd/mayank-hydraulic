@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
-import Footer from "./_landing/Footer";
-import NavBarLanding from "./_landing/NavBarLanding";
-import MobileTabBar from "./_landing/MobileTabBar";
+import Footer from "@/app/(landing)/_landing/Footer";
+import NavBar from "@/app/(landing)/_landing/NavBarLanding";
+import MobileTabBar from "@/app/(landing)/_landing/MobileTabBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <div lang="en">
-      <NavBarLanding />
+      <NavBar />
       <div className={inter.className}>{children}</div>
       <Footer />
       <MobileTabBar />

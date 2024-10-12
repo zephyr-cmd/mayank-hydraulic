@@ -398,33 +398,32 @@ export default function ContactCard() {
 
   return (
     <div className="gap-10">
-      <div className="relative w-full bg-gradient-to-r from-gray-50 to-gray-100 grid gap-0 pt-[100px]">
+      <div className="relative w-full bg-gradient-to-r from-gray-50 to-gray-100 grid gap-0 sm:pt-[100px]">
         {/* Image container */}
-        <div className="absolute inset-0 h-[500px]">
+        <div className="absolute inset-0 h-[250px] sm:h-[500px]">
           <Image
             src="/about-us.png"
             alt="About Us Background"
             fill
-            className="object-cover"
+            className="object-contain sm:object-cover"
             priority={true}
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
           />
         </div>
 
         {/* Black overlay with transparency */}
-        <div className="absolute inset-0 h-[500px] bg-black/40"></div>
+        <div className="absolute inset-0 h-[250px] sm:h-[500px] bg-black/40"></div>
 
         {/* Content container */}
-        <div className="relative grid w-full text-center h-[400px] justify-center items-center px-4 space-y-2 lg:pt-24 lg:space-y-4 gap-5">
+        <div className="relative grid w-full text-center  h-[250px] sm:h-[400px] justify-center items-center px-4 space-y-2 lg:pt-24 lg:space-y-4 gap-5">
           <h2 className="text-3xl font-extrabold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-gray-100">
             Contact Us
           </h2>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-gray-200">
             Advance your operations by investing in the right technology
           </p>
         </div>
       </div>
-
       <div className="container mx-auto py-10 px-10 h-full pt[500px]">
         {/* Flex container to ensure both sections take equal height */}
         <div className="flex flex-col sm:flex-row sm:justify-between w-full gap-6 h-full items-center">
