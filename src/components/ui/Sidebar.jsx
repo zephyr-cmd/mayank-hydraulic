@@ -8,7 +8,11 @@ import {
   UsersIcon,
 } from "@/components/icons/icons2";
 // import { AppointmentIcon, DoctorIcon } from "@/app/_components/social";
-import { AppointmentIcon, DoctorIcon } from "@/components/icons/social";
+import {
+  AppointmentIcon,
+  DoctorIcon,
+  PackageIcon,
+} from "@/components/icons/social";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -43,6 +47,8 @@ function Sidebar({ className, role, sideBarOpen }) {
     } else {
       return [
         { name: "home", logo: HomeIcon },
+        { name: "product", logo: PackageIcon },
+        { name: "finances", logo: LandmarkIcon },
         // { name: "appointment", logo: AppointmentIcon },
         // { name: "customers", logo: DoctorIcon },
       ];

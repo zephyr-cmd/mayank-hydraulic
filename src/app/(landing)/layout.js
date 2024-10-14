@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/app/(landing)/_landing/Footer";
 import NavBar from "@/app/(landing)/_landing/NavBarLanding";
 import MobileTabBar from "@/app/(landing)/_landing/MobileTabBar";
+import WhatsAppButton from "./_landing/WhatsAppCTA";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
       <NavBar />
       <div className={inter.className}>{children}</div>
       <Footer />
+      <WhatsAppButton />
       <MobileTabBar />
     </div>
   );

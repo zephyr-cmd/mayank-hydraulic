@@ -62,7 +62,7 @@ function Specialities() {
       <p className="bg-gradient-to-r from-blue-700  to-indigo-400 text-transparent bg-clip-text text-center font-bold text-3xl sm:text-5xl  leading-tight tracking-tighter">
         Most Popular Products
       </p>
-      <p className="text-white mt-4 text-center">
+      <p className="text-white mt-4 p-7 text-center">
         At M/s Mayank Hydraulic, we are proud to be an Authorized Wholesale
         Dealer, Retailer, Trader, and Supplier, offering a wide range of
         products including Hydraulic Pumps, Hydraulic Valves, Piston Pumps,

@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "8826381983"; // Replace with your actual phone number in international format
-  const message = "Hello! How can we help you?"; // Optional pre-filled message
+  const phoneNumber = "918826381983"; // Replace with your actual phone number in international format
+  const message = "Hello! ?"; // Optional pre-filled message
   const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
     message
-  )}`;
+  )}&type=phone_number`;
 
   return (
     <Link
