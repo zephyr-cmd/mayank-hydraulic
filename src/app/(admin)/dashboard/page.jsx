@@ -1,5 +1,4 @@
 import Home from "@/app/(admin)/dashboard/home/page";
-// import { Administration } from "./Administration";
 
 const Dashboard = () => {
   return (

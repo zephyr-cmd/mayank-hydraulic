@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useEffect, useState } from "react";
+import { Logout } from "@/app/(admin)/dashboard/_utils/logout";
 
 export function EditAppointmentForm(props) {
   const appointmentDetails = props.appointmentDetails;

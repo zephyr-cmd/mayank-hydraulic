@@ -11,7 +11,7 @@ import {
 // import { ResponsivePie } from "@nivo/pie";
 import { useCallback, useEffect, useState } from "react";
 import { generateBluishColor } from "@/components/helper/utils";
-import { Logout } from "../../_resources/utils/logout";
+import { Logout } from "@/app/(admin)/dashboard/_utils/logout";
 import BeatLoading from "@/components/ui/BeatLoading/BeatLoading";
 // const { ServerURI } = process.env;
 
