@@ -118,7 +118,7 @@ export async function GET() {
   await DBConnect();
 
   try {
-    const [DocumentLength, categories] = await Promise.all([
+    const [totalDocs, categories] = await Promise.all([
       CategoryDB.countDocuments(),
       CategoryDB.find()
         .select("name image products")
@@ -129,7 +129,7 @@ export async function GET() {
     return NextResponse.json(
       {
         status: 200,
-        DocumentLength,
+        totalDocs,
         categories,
       },
       { status: 200 }

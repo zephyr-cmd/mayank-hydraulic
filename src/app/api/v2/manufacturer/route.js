@@ -71,15 +71,19 @@ export async function GET() {
   await DBConnect();
 
   try {
-    const manufacturers = await ManufacturerDB.find()
-      .select("name logo products")
-      .populate("products", "_id name") // Populate product ID and name
-      .lean()
-      .exec();
+    const [totalDocs, manufacturers] = await Promise.all([
+      ManufacturerDB.countDocuments(),
+      ManufacturerDB.find()
+        .select("name logo products")
+        .populate("products _id name")
+        .lean()
+        .exec(),
+    ]);
 
     return NextResponse.json(
       {
         status: 200,
+        totalDocs,
         manufacturers,
       },
       { status: 200 }

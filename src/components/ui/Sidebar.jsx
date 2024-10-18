@@ -50,8 +50,8 @@ function Sidebar({ className, role, sideBarOpen }) {
       return [
         { name: "home", logo: HomeIcon },
         { name: "products", logo: PackageIcon },
-        { name: "Categories", logo: CategoryIcon },
-        { name: "Manufacturers", logo: HomeModernIcon },
+        { name: "categories", logo: CategoryIcon },
+        { name: "manufacturers", logo: HomeModernIcon },
         // { name: "finances", logo: LandmarkIcon },
         // { name: "appointment", logo: AppointmentIcon },
         // { name: "customers", logo: DoctorIcon },
