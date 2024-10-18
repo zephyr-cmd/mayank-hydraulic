@@ -129,7 +129,7 @@ export async function loginAction(prevState, formData) {
       };
     }
   } catch (e) {
-    console.log(`L-132, error form server component : ${e}`);
+    console.log(`L-132, error form server component : ${e}`, ServerURI);
     return { message: `Failed to create second openion` };
   }
 }
@@ -187,7 +187,7 @@ export async function signUpAction(prevState, formData) {
       };
     }
   } catch (e) {
-    console.log(`L-190, error form server component : ${e}`);
+    console.log(`L-190, error form server component : ${e}`, ServerURI);
     return { message: `SignUp failed` };
   }
 }

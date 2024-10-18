@@ -42,7 +42,7 @@ const Register = () => {
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <Image
               className="mx-auto h-10 w-auto"
-              src="/logo.jpg"
+              src="/mh-logo-font-jpeg.jpg"
               alt="company logo"
               width={1200}
               height={50}
