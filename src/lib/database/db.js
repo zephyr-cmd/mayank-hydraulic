@@ -14,8 +14,6 @@ export async function DBConnect() {
     if (!connection.isConnected) {
       // Attempt to connect to the database
       const db = await mongoose.connect(DB_URL || "", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
         autoIndex: false,
       });
       connection.isConnected = db.connections[0].readyState;

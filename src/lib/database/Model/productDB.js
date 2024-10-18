@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const schema = new mongoose.Schema(
+const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -11,12 +11,12 @@ const schema = new mongoose.Schema(
       type: String,
     },
     categoryId: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Category",
       required: true,
     },
     manufacturerId: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Manufacturer",
       required: true,
     },
@@ -54,12 +54,15 @@ const schema = new mongoose.Schema(
 
 // Indexes
 // Index on 'categoryId' for efficient queries by category
-schema.index({ categoryId: 1 });
+productSchema.index({ categoryId: 1 });
 
 // Index on 'manufacturerId' for efficient queries by manufacturer
-schema.index({ manufacturerId: 1 });
+productSchema.index({ manufacturerId: 1 });
+
+productSchema.indexes({ createdAt: 1, _id: 1 });
 
 // Text index on 'name' and 'description' for full-text search
-schema.index({ name: "text", description: "text" });
+productSchema.index({ name: "text", description: "text" });
 
-export default mongoose.models.Product || mongoose.model("Product", schema);
+export default mongoose.models.Product ||
+  mongoose.model("Product", productSchema);

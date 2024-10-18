@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { DBConnect } from "@/lib/database/db";
 import CategoryDB from "@/lib/database/Model/categoryDB";
+import ProductDB from "@/lib/database/Model/productDB";
 import UserDB from "@/lib/database/Model/userDB";
 import { jwtTokenVerification } from "@/components/helper/utils";
 
@@ -119,7 +120,10 @@ export async function GET() {
   try {
     const [DocumentLength, categories] = await Promise.all([
       CategoryDB.countDocuments(),
-      CategoryDB.find().populate("products", "_id name").lean(),
+      CategoryDB.find()
+        .select("name image products")
+        .populate("products", "_id name")
+        .lean(),
     ]);
 
     return NextResponse.json(

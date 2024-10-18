@@ -6,7 +6,7 @@ const WhatsAppButton = () => {
   const message = "Hello! ?"; // Optional pre-filled message
   const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
     message
-  )}&type=phone_number`;
+  )}&type=phone_number&app_absent=0`;
 
   return (
     <Link

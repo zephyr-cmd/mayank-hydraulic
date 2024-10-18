@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const schema = new mongoose.Schema(
+const manufacturerSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -21,7 +21,7 @@ const schema = new mongoose.Schema(
     },
     products: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Product",
       },
     ],
@@ -30,4 +30,4 @@ const schema = new mongoose.Schema(
 );
 
 export default mongoose.models.Manufacturer ||
-  mongoose.model("Manufacturer", schema);
+  mongoose.model("Manufacturer", manufacturerSchema);

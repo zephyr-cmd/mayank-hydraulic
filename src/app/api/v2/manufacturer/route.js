@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { DBConnect } from "@/lib/database/db";
 import ManufacturerDB from "@/lib/database/Model/manufacturerDB";
+import ProductDB from "@/lib/database/Model/productDB";
 import { jwtTokenVerification } from "@/components/helper/utils";
 import UserDB from "@/lib/database/Model/userDB";
 
@@ -71,6 +72,7 @@ export async function GET() {
 
   try {
     const manufacturers = await ManufacturerDB.find()
+      .select("name logo products")
       .populate("products", "_id name") // Populate product ID and name
       .lean()
       .exec();

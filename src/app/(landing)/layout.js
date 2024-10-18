@@ -3,6 +3,7 @@ import Footer from "@/app/(landing)/_landing/Footer";
 import NavBar from "@/app/(landing)/_landing/NavBarLanding";
 import MobileTabBar from "@/app/(landing)/_landing/MobileTabBar";
 import WhatsAppButton from "./_landing/WhatsAppCTA";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
       <Footer />
       <WhatsAppButton />
       <MobileTabBar />
+      <Toaster />
     </div>
   );
 }

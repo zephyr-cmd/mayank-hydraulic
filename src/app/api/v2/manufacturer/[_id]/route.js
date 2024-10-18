@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { DBConnect } from "@/lib/database/db";
 import ManufacturerDB from "@/lib/database/Model/manufacturerDB";
+import ProductDB from "@/lib/database/Model/productDB";
 import { jwtTokenVerification } from "@/components/helper/utils";
 import employeeDB from "@/lib/database/Model/employeeDB";
 
@@ -9,9 +10,8 @@ export async function GET(request, { params }) {
   await DBConnect();
 
   try {
-    const { manufacturerId } = params;
-
-    const manufacturer = await ManufacturerDB.findById(manufacturerId)
+    const { _id } = params;
+    const manufacturer = await ManufacturerDB.findById(_id)
       .populate("products", "_id name price") // Populate product details
       .lean()
       .exec();
@@ -51,11 +51,11 @@ export async function PUT(request, { params }) {
       );
     }
 
-    const { manufacturerId } = params;
+    const { _id } = params;
     const data = await request.json();
 
     const manufacturer = await ManufacturerDB.findByIdAndUpdate(
-      manufacturerId,
+      _id,
       { $set: data, $addToSet: { products: { $each: data.products || [] } } }, // Add new products if provided
       { new: true, runValidators: true }
     ).exec();
@@ -95,11 +95,9 @@ export async function DELETE(request, { params }) {
       );
     }
 
-    const { manufacturerId } = params;
+    const { _id } = params;
 
-    const manufacturer = await ManufacturerDB.findByIdAndDelete(
-      manufacturerId
-    ).exec();
+    const manufacturer = await ManufacturerDB.findByIdAndDelete(_id).exec();
 
     if (!manufacturer) {
       return NextResponse.json(

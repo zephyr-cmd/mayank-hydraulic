@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Logout } from "@/app/(admin)/_resources/utils/logout";
+import { Logout } from "@/app/(admin)/dashboard/_utils/logout";
 import { redirect, useRouter } from "next/navigation";
 
 const { Button } = require("@/components/ui/button");
@@ -13,12 +13,15 @@ const {
   DropdownMenuSeparator,
   DropdownMenuItem,
 } = require("@/components/ui/dropdown-menu");
+import { useAuth } from "@/app/(admin)/dashboard/_utils/AuthContext";
 
 export function AdminHeader() {
+  // const { token, setToken } = useAuth(); // Step 4: Access the context
   const router = useRouter();
   const handleLogout = (id) => {
     localStorage.clear();
     Logout();
+    // setToken(null);
     router.push(`/`);
     // redirect("/login");
   };

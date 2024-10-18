@@ -52,7 +52,7 @@ export function FeedBackCarousel() {
                   <StarIcon className="w-7 h-7" />
                 </div>
                 <Link
-                  href={"https://g.page/r/CWCle9fHY01uEBI/review"}
+                  href={"#https://g.page/r/xxxxxxxxxxxxxxxxxxxxxxx/review"}
                   className="text-sm text-blue-700"
                 >
                   Review us on Google

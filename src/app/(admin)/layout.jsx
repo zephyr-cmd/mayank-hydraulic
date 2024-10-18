@@ -1,10 +1,12 @@
 "use client";
 import Sidebar from "@/components/ui/Sidebar";
-import { AdminHeader } from "@/app/(admin)/_admin/adminHeader";
+import { AdminHeader } from "@/app/(admin)/dashboard/_utils/adminHeader";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { LoadingModal } from "@/components/helper/loadingModal";
 import MenuIcon from "@/components/ui/menuIcon";
 import Link from "next/link";
+import { AuthProvider } from "@/app/(admin)/dashboard/_utils/AuthContext";
+import { Toaster } from "@/components/ui/sonner";
 
 function LayoutRoutesComponent({ children }) {
   const [role, setRole] = useState("");
@@ -100,14 +102,17 @@ function LayoutRoutesComponent({ children }) {
         </div>
       </header>
       <Suspense fallback={<LoadingModal />}>
-        <div className="flex min-h-[100dvh] relative dark:bg-black duration-700 ">
-          {/* Side Bar */}
-          {memoizedSidebar}
-          <main className="flex-1 overflow-y-auto p-4 pt-16 w-full">
-            {children}
-          </main>
-        </div>
+        <AuthProvider>
+          <div className="flex min-h-[100dvh] relative dark:bg-black duration-700 ">
+            {/* Side Bar */}
+            {memoizedSidebar}
+            <main className="flex-1 overflow-y-auto p-4 pt-16 w-full">
+              {children}
+            </main>
+          </div>
+        </AuthProvider>
       </Suspense>
+      <Toaster />
     </div>
   );
 }

@@ -2,7 +2,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { ExpandSideBarIcon, EmployeeIcon } from "@/components/icons/icons";
 import {
+  CategoryIcon,
   HomeIcon,
+  HomeModernIcon,
   LandmarkIcon,
   LineChartIcon,
   UsersIcon,
@@ -36,19 +38,21 @@ function Sidebar({ className, role, sideBarOpen }) {
         { name: "finances", logo: LandmarkIcon },
         // { name: "admin", logo: AdminIcon },
       ];
-    } else if (role === "editor") {
-      return [
-        { name: "home", logo: HomeIcon },
-        { name: "appointment", logo: AppointmentIcon },
-        { name: "customers", logo: DoctorIcon },
-        // { name: "analytics", logo: LineChartIcon },
-        // { name: "editor", logo: EditorIcon },
-      ];
+      // } else if (role === "editor") {
+      //   return [
+      //     { name: "home", logo: HomeIcon },
+      //     { name: "appointment", logo: AppointmentIcon },
+      //     { name: "customers", logo: DoctorIcon },
+      //     // { name: "analytics", logo: LineChartIcon },
+      //     // { name: "editor", logo: EditorIcon },
+      //   ];
     } else {
       return [
         { name: "home", logo: HomeIcon },
-        { name: "product", logo: PackageIcon },
-        { name: "finances", logo: LandmarkIcon },
+        { name: "products", logo: PackageIcon },
+        { name: "Categories", logo: CategoryIcon },
+        { name: "Manufacturers", logo: HomeModernIcon },
+        // { name: "finances", logo: LandmarkIcon },
         // { name: "appointment", logo: AppointmentIcon },
         // { name: "customers", logo: DoctorIcon },
       ];
