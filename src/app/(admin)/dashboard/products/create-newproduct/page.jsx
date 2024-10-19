@@ -113,7 +113,8 @@ export default function CreateProduct() {
   };
 
   return (
-    <div className="p-8">
+    <div className="container mx-auto p-4">
+      <h2 className="text-2xl font-semibold mb-4">Create New Product</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Product Name */}
         <div className="flex flex-row gap-5">
