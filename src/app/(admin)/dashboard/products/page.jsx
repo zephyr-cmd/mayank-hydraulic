@@ -129,11 +129,10 @@ export default function ProductsPage() {
                     objectFit: "contain",
                     overflow: "hidden",
                   }}
-                  priority={true}
-                  sizes="(max-width: 640px) 100vw,
-              (max-width: 1280px) 50vw,
-              (max-width: 1536px) 33vw,
-              25vw"
+                  priority={false}
+                  placeholder="blur"
+                  blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <h2 className="text-xl font-semibold">{product.name}</h2>

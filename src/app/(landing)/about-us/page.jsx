@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BestDealForm from "../_landing/BestDeal";
+import BestDealForm from "@/app/(landing)/_landing/BestDeal";
 import Link from "next/link";
 import GetInTouch from "../_landing/GetInTouch";
 

@@ -46,35 +46,52 @@ export async function createSubscriber(prevState, formData) {
   }
 }
 
-export async function createSecondOpinion(prevState, formData) {
-  // console.log("L-47, FormData---->", formData);
-  // console.log("L-48, PrevState---->", prevState);
+export async function createFreeConsultation(prevState, formData) {
+  // console.log("L-50, FormData---->", formData);
+  // console.log("L-51, PrevState---->", prevState);
 
-  const schema = z.object({
-    phoneNumber: z
-      .string()
-      .min(10, { message: "Number contains less than 10 digits" })
-      .max(10, { message: "number contains more than 10 digits" }),
-  });
+  const schema = z
+    .object({
+      countryCode: z.string().min(1, { message: "Country code is required" }),
+      phoneNumber: z
+        .string()
+        .optional()
+        .refine((val) => !val || /^[0-9]{7,15}$/.test(val), {
+          message: "Invalid phone number format",
+        }),
+      email: z.string().email({ message: "Invalid email address" }).optional(),
+    })
+    .superRefine((data, ctx) => {
+      // Check if either phoneNumber or email is provided
+      if (!data.phoneNumber && !data.email) {
+        ctx.addIssue({
+          path: ["phoneNumber"],
+          message: "Either phone number or email must be provided.",
+        });
+      }
+    });
   const validatedFields = schema.safeParse({
-    phoneNumber: formData.get("phoneNumber"),
+    countryCode: formData.get("countryCode"),
+    phoneNumber: formData.get("phoneNumber") ?? undefined,
+    email: formData.get("email") ?? undefined,
   });
-  // console.log("L-59, validateFields: ", validatedFields.success);
+  // console.log("L-79, validateFields: ", validatedFields.success);
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       message: "Please Provide Correct Details",
     };
   }
-  const newObjdata = validatedFields.data;
+  const newObjData = validatedFields.data;
+  // console.log("L-88, newObjData---------------->: ", newObjData);
   try {
     const apiResponse = await axios.post(
-      `${ServerURI}/api/v1/free-opinion`,
-      newObjdata
+      `${ServerURI}/api/v2/client/free-consultation`,
+      newObjData
     );
-    console.log("L-72, apiResponse : ", apiResponse.status);
-    revalidatePath("/");
-    if (apiResponse.status == 200) {
+    console.log("L-87, apiResponse------------------>: ", apiResponse.status);
+    // revalidatePath("/");
+    if (apiResponse.status == 201) {
       return { message: `Successfull, we will back to you soon !!!` };
     } else {
       return { message: `something went wrong !` };

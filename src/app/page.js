@@ -4,10 +4,11 @@ import Footer from "@/app/(landing)/_landing/Footer";
 import HeaderCarousel from "@/app/(landing)/_landing/HeaderCarousel";
 import HeroSection from "@/app/(landing)/_landing/HeroSection";
 import NavBar from "@/app/(landing)/_landing/NavBarLanding";
-import { Parallex } from "@/app/(landing)/_landing/parallex";
+import { Parallax } from "@/app/(landing)/_landing/parallax";
 import Specialities from "@/app/(landing)/_landing/Specialities";
 import WhatsAppButton from "@/app/(landing)/_landing/WhatsAppCTA";
 import MobileTabBar from "@/app/(landing)/_landing/MobileTabBar";
+import { Toaster } from "sonner";
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
       <Specialities />
       <CompanyInfo />
       <FeedBackCarousel />
-      <Parallex />
+      <Parallax />
       <Footer />
       <WhatsAppButton />
       <MobileTabBar />
+      <Toaster />
     </main>
   );
 }

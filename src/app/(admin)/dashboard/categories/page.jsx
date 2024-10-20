@@ -101,7 +101,10 @@ export default function CategoriesPage() {
                     alt={category.name}
                     fill
                     style={{ objectFit: "contain" }}
-                    priority={true}
+                    priority={false}
+                    placeholder="blur"
+                    blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 ) : (
                   <p>No Image</p>
