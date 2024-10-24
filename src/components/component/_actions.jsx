@@ -75,7 +75,7 @@ export async function createFreeConsultation(prevState, formData) {
     phoneNumber: formData.get("phoneNumber") ?? undefined,
     email: formData.get("email") ?? undefined,
   });
-  // console.log("L-79, validateFields: ", validatedFields.success);
+  // console.log("L-78, validateFields: ", validatedFields.success);
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
@@ -83,13 +83,13 @@ export async function createFreeConsultation(prevState, formData) {
     };
   }
   const newObjData = validatedFields.data;
-  // console.log("L-88, newObjData---------------->: ", newObjData);
+  // console.log("L-86, newObjData---------------->: ", newObjData);
   try {
     const apiResponse = await axios.post(
       `${ServerURI}/api/v2/client/free-consultation`,
       newObjData
     );
-    console.log("L-87, apiResponse------------------>: ", apiResponse.status);
+    console.log("L-92, apiResponse------------------>: ", apiResponse.status);
     // revalidatePath("/");
     if (apiResponse.status == 201) {
       return { message: `Successfull, we will back to you soon !!!` };

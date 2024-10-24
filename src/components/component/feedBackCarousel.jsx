@@ -19,7 +19,7 @@ export function FeedBackCarousel() {
       {/* <h2>
         <span className="text-2xl font-bold">Testimonial</span>
       </h2> */}
-      <p className="sm:mb-5 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text text-center font-bold text-3xl sm:text-5xl leading-tight tracking-tighter">
+      <p className="sm:mb-5 bg-gradient-to-r from-blue-700 to-indigo-400 text-transparent bg-clip-text text-center font-bold text-3xl sm:text-5xl leading-tight tracking-tighter">
         Testimonial
       </p>
       <div className="h-1 w-[100%] block sm:hidden rounded-3xl bg-black"></div>

@@ -20,19 +20,6 @@ export default function Products() {
             </div>
           </div>
         </section>
-        {/* <section className="flex flex-col justify-evenly items-center sm:flex-row sm:justify-evenly p-5 gap-7 ">
-                    <Link href={"/appointment"} aria-label="Request an appointment">
-            <Button>Request Appointment</Button>
-          </Link>
-          <div className="flex flex-col sm:flex-row justify-evenly items-center">
-            <Link
-              href={"tel:+918267028117"}
-              aria-label="Call for an appointment"
-            >
-              <Button>☎️ &nbsp; +91-8267028117</Button>
-            </Link>
-          </div>
-        </section> */}
         <section>
           <CategoryList />
         </section>

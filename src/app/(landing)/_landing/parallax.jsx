@@ -47,7 +47,7 @@ export function Parallax() {
       <div className="absolute min-h-full w-full bg-black/60" />
       <div className="absolute w-full min-h-full flex flex-col justify-center items-center">
         <div className="container mx-auto">
-          <p className="font-extrabold text-center text-xl text-white">
+          <p className="font-extrabold text-center text-xl text-white pb-5">
             Get FREE consultation from our experts.
           </p>
           <div className="flex flex-col w-full justify-center items-center">
@@ -55,88 +55,95 @@ export function Parallax() {
               className="flex flex-col sm:flex-row p-5 gap-5 justify-center items-center w-full"
               action={formAction}
             >
-              <div className="flex flex-col sm:flex-row w-full items-center gap-3">
-                {/* Country Code Dropdown */}
-                <div className="w-full sm:w-1/4">
-                  <Select
-                    id="countryCode"
-                    name="countryCode"
-                    defaultValue={selectedCountry}
-                    onValueChange={(value) => setSelectedCountry(value)}
-                    className="w-full"
-                  >
-                    <SelectTrigger className="text-sm border border-gray-300 rounded-l-md text-gray-300">
-                      <SelectValue placeholder="Select Country" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectLabel>Country Dial Code</SelectLabel>
-                        {countryDialCode.map((country) => (
-                          <SelectItem
-                            key={`${country.dial_code}-${country.name}`}
-                            value={country.dial_code}
+              <div className="flex flex-col gap-5 w-full md:px-32 container mx-auto">
+                <div className="flex flex-col sm:flex-row w-full items-center gap-3">
+                  {/* Country Code Dropdown */}
+                  <div className="w-full sm:w-1/4">
+                    <Select
+                      id="countryCode"
+                      name="countryCode"
+                      defaultValue={selectedCountry}
+                      onValueChange={(value) => setSelectedCountry(value)}
+                      className="w-full"
+                    >
+                      <SelectTrigger className="text-sm border border-gray-300 rounded-l-md text-gray-300">
+                        <SelectValue placeholder="Select Country" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <SelectLabel>Country Dial Code</SelectLabel>
+                          {countryDialCode.map((country) => (
+                            <SelectItem
+                              key={`${country.dial_code}-${country.name}`}
+                              value={country.dial_code}
+                            >
+                              {country.flag} {country.name} ({country.dial_code}
+                              )
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                    {state?.errors?.countryCode && (
+                      <p
+                        className="text-sm text-red-700 mt-2"
+                        aria-live="polite"
+                      >
+                        {state.errors.countryCode}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="w-full sm:w-3/4">
+                    {/* Conditional Input: Phone for India, Email for Others */}
+                    {isIndia ? (
+                      <div>
+                        <Input
+                          type="text"
+                          placeholder="Enter your phone number"
+                          name="phoneNumber"
+                          className="w-full border border-gray-300 rounded-r-md text-gray-300"
+                          required={isIndia}
+                        />
+                        {state?.errors?.phoneNumber && (
+                          <p
+                            className="text-sm text-red-700 mt-2"
+                            aria-live="polite"
                           >
-                            {country.flag} {country.name} ({country.dial_code})
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                  {state?.errors?.countryCode && (
+                            {state.errors.phoneNumber}
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <div>
+                        <Input
+                          type="email"
+                          placeholder="Enter your email"
+                          name="email"
+                          className="w-full border border-gray-300 rounded-r-md text-gray-300"
+                          required={!isIndia}
+                        />
+                        {state?.errors?.email && (
+                          <p
+                            className="text-sm text-red-700 mt-2"
+                            aria-live="polite"
+                          >
+                            {state.errors.email}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="flex justify-center">
+                  <SubmitButton />
+                  {state?.message && (
                     <p className="text-sm text-red-700 mt-2" aria-live="polite">
-                      {state.errors.countryCode}
+                      {state?.message}
                     </p>
                   )}
                 </div>
-
-                <div className="w-full sm:w-3/4">
-                  {/* Conditional Input: Phone for India, Email for Others */}
-                  {isIndia ? (
-                    <div>
-                      <Input
-                        type="text"
-                        placeholder="Enter your phone number"
-                        name="phoneNumber"
-                        className="w-full border border-gray-300 rounded-r-md text-gray-300"
-                        required={isIndia}
-                      />
-                      {state?.errors?.phoneNumber && (
-                        <p
-                          className="text-sm text-red-700 mt-2"
-                          aria-live="polite"
-                        >
-                          {state.errors.phoneNumber}
-                        </p>
-                      )}
-                    </div>
-                  ) : (
-                    <div>
-                      <Input
-                        type="email"
-                        placeholder="Enter your email"
-                        name="email"
-                        className="w-full border border-gray-300 rounded-r-md text-gray-300"
-                        required={!isIndia}
-                      />
-                      {state?.errors?.email && (
-                        <p
-                          className="text-sm text-red-700 mt-2"
-                          aria-live="polite"
-                        >
-                          {state.errors.email}
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </div>
               </div>
-
-              <SubmitButton />
-              {state?.message && (
-                <p className="text-sm text-red-700 mt-2" aria-live="polite">
-                  {state?.message}
-                </p>
-              )}
             </form>
           </div>
         </div>

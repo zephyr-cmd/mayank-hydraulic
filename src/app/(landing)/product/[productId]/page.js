@@ -1,8 +1,12 @@
-import CategoryList from "@/app/(landing)/our-products/category";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import ProductDetails from "@/app/(landing)/product/ProductDetails";
+// ../ProductDetails";
 
-export default function Products() {
+export default function Products({ params }) {
+  // const router = useRouter();
+  const { productId } = params;
+  // console.log("L-10, router--------->", productId);
   return (
     <div className="bg-gradient-to-r from-gray-50 to-gray-100 text-black dark:bg-black dark:text-white items-center w-full min-h-fit">
       <div className="container mx-auto">
@@ -20,29 +24,16 @@ export default function Products() {
             </div>
           </div>
         </section>
-        {/* <section className="flex flex-col justify-evenly items-center sm:flex-row sm:justify-evenly p-5 gap-7 ">
-                    <Link href={"/appointment"} aria-label="Request an appointment">
-            <Button>Request Appointment</Button>
-          </Link>
-          <div className="flex flex-col sm:flex-row justify-evenly items-center">
-            <Link
-              href={"tel:+918267028117"}
-              aria-label="Call for an appointment"
-            >
-              <Button>☎️ &nbsp; +91-8267028117</Button>
-            </Link>
-          </div>
-        </section> */}
         <section>
-          <CategoryList />
+          <ProductDetails productId={productId} />
         </section>
       </div>
     </div>
   );
 }
 
-export const metadata = {
-  title: "Products || Mayank Hydraulics",
-  description:
-    "Authorized Wholesale Dealer, Retailer, Trader and Supplier of an extensive array of Hydraulic Pump, Hydraulic Valve, Piston Pump, Servo Valve etc.",
-};
+// export const metadata = {
+//   title: "Products || Mayank Hydraulics",
+//   description:
+//     "Authorized Wholesale Dealer, Retailer, Trader and Supplier of an extensive array of Hydraulic Pump, Hydraulic Valve, Piston Pump, Servo Valve etc.",
+// };

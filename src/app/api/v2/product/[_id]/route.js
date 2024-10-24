@@ -3,16 +3,18 @@ import { DBConnect } from "@/lib/database/db";
 import ProductDB from "@/lib/database/Model/productDB";
 import UserDB from "@/lib/database/Model/userDB";
 import { jwtTokenVerification } from "@/components/helper/utils";
+import CategoryDB from "@/lib/database/Model/categoryDB";
+import ManufacturerDB from "@/lib/database/Model/manufacturerDB";
 
 // Fetch the product details by ID, including category and manufacturer references
-export async function GET(request) {
+export async function GET(request, content) {
   try {
     // Connect to the database
     await DBConnect();
 
     // Extract product ID from the query parameters
-    const { searchParams } = new URL(request.url);
-    const productId = searchParams.get("id");
+    const { _id } = await content.params;
+    const productId = _id;
 
     // Validate if productId is provided
     if (!productId) {

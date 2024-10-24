@@ -16,9 +16,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <div lang="en">
+    <div className="flex flex-col items-center w-full" lang="en">
       <NavBar />
-      <div className={inter.className}>{children}</div>
+      <div className={`${inter.className} w-full`}>{children}</div>
       <Footer />
       <WhatsAppButton />
       <MobileTabBar />
