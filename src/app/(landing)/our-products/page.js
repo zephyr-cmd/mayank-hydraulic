@@ -82,27 +82,23 @@ export default async function Products() {
                   <h5 className="my-2 px-5 text-xl font-semibold text-left text-gray-900 dark:text-white">
                     Products
                   </h5>
-                  <div className="flex flex-col items-start justify-start p-5 w-full h-full">
-                    <div className="grid grid-cols-2">
-                      {category.products.length > 0 ? (
-                        <ul className="space-y-2">
-                          {category.products.map((product) => (
-                            <li key={product._id}>
-                              <Link
-                                href={`/product/${product._id}`}
-                                className="text-blue-600 hover:underline"
-                              >
-                                {product.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="text-gray-500 dark:text-gray-400">
-                          No products available.
-                        </p>
-                      )}
-                    </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 p-4">
+                    {category.products.length > 0 ? (
+                      category.products.map((product, index) => (
+                        <div key={index}>
+                          <Link
+                            href={`/product/${product._id}`}
+                            className="text-blue-600 hover:underline"
+                          >
+                            {product.name}
+                          </Link>
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-gray-500 dark:text-gray-400">
+                        No products available.
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

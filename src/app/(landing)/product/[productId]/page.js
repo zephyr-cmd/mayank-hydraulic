@@ -99,7 +99,7 @@ export default async function Products({ params }) {
                   <h2 className="text-xl font-bold mb-2">Specifications:</h2>
                   <ul className="space-y-2 mb-4">
                     {specifications.map((spec) => (
-                      <li key={spec._id.$oid} className="flex justify-between">
+                      <li key={spec._id} className="flex justify-between">
                         <span className="font-semibold">{spec.key}:</span>
                         <span>{spec.value}</span>
                       </li>

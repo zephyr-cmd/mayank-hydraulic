@@ -135,10 +135,13 @@ export function Parallax() {
                     )}
                   </div>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex flex-col justify-center">
                   <SubmitButton />
                   {state?.message && (
-                    <p className="text-sm text-red-700 mt-2" aria-live="polite">
+                    <p
+                      className="text-sm text-blue-700 mt-2"
+                      aria-live="polite"
+                    >
                       {state?.message}
                     </p>
                   )}

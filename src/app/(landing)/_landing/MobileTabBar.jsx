@@ -64,7 +64,11 @@ const MobileTabBar = () => {
           <p>Home</p>
         </Link>
         {/* Profile */}
-        <button className="flex flex-col items-center" onClick={toggleProfile}>
+        <Link
+          href={"/about-us"}
+          className="flex flex-col items-center"
+          // onClick={toggleProfile}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -81,9 +85,13 @@ const MobileTabBar = () => {
           </svg>
 
           <p>Profile</p>
-        </button>
+        </Link>
         {/* Our Range */}
-        <button className="flex flex-col items-center" onClick={toggleRange}>
+        <Link
+          href={"/our-products"}
+          className="flex flex-col items-center"
+          // onClick={toggleRange}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -100,7 +108,7 @@ const MobileTabBar = () => {
           </svg>
 
           <p>Our Range</p>
-        </button>
+        </Link>
         {/* Contact Us */}
         <Link href="/contact-us" className="flex flex-col items-center">
           <svg
