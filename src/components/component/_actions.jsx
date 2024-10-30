@@ -60,6 +60,8 @@ export async function createFreeConsultation(prevState, formData) {
           message: "Invalid phone number format",
         }),
       email: z.string().email({ message: "Invalid email address" }).optional(),
+      name: z.string().optional(),
+      description: z.string().optional(),
     })
     .superRefine((data, ctx) => {
       // Check if either phoneNumber or email is provided
@@ -74,6 +76,8 @@ export async function createFreeConsultation(prevState, formData) {
     countryCode: formData.get("countryCode"),
     phoneNumber: formData.get("phoneNumber") ?? undefined,
     email: formData.get("email") ?? undefined,
+    name: formData.get("name") ?? undefined,
+    description: formData.get("description") ?? undefined,
   });
   // console.log("L-78, validateFields: ", validatedFields.success);
   if (!validatedFields.success) {

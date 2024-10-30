@@ -37,6 +37,7 @@ export async function POST(request) {
       countryCode: data.countryCode,
       phoneNumber: data?.phoneNumber,
       email: data?.email,
+      description: data?.description,
       saleLead: true,
     });
 

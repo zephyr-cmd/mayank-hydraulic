@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import BestDealForm from "../../_landing/BestDeal";
 let { ServerURI } = process.env;
 // import { Button } from "@/components/ui/button";
 // import ProductDetails from "@/app/(landing)/product/ProductDetails";
@@ -39,20 +40,27 @@ export default async function Products({ params }) {
   // console.log("L-10, router--------->", productId);
   return (
     <div className="bg-gradient-to-r from-gray-50 to-gray-100 text-black dark:bg-black dark:text-white items-center w-full min-h-fit">
-      <div className="container mx-auto">
-        <section className="flex flex-col justify-center items-center p-5 w-full">
-          <p className="font-extrabold text-center p-5 bg-gradient-to-r from-blue-700 to-indigo-400 text-transparent bg-clip-text text-3xl md:text-3xl lg:text-5xl leading-tight tracking-tighter ">
-            Showroom
-          </p>
-          <div>
-            <div className="flex flex-col justify-center items-center mt-10 space-y-10">
-              <p className="font-bold text-lg text-center">
-                We “M/s Mayank Hydraulic” are Authorized Wholesale Dealer,
-                Retailer, Trader and Supplier of an extensive array of Hydraulic
-                Pump, Hydraulic Valve, Piston Pump, Servo Valve etc.
-              </p>
-            </div>
-          </div>
+      <div className="container mx-auto sm:mt-10">
+        <section className="back-Button ">
+          <Link
+            href={"/our-products"}
+            className="flex flex-row items-center justify-start cursor-pointer duration-200 hover:scale-105 sm:hover:scale-100"
+            title="Go Back"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              className="stroke-blue-500 size-6 md:size-10"
+            >
+              <path
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                strokeWidth="1.5"
+                d="M11 6L5 12M5 12L11 18M5 12H19"
+              ></path>
+            </svg>
+            <span className="md:text-2xl">Go Back</span>
+          </Link>
         </section>
         <section>
           {/* <ProductDetails productId={productId} /> */}
@@ -115,11 +123,11 @@ export default async function Products({ params }) {
                   )}
 
                   {/* Category and Manufacturer */}
-                  <div className="flex justify-between mb-4">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <div className="flex flex-col justify-between mb-4">
+                    <span className="text-xl text-gray-600 dark:text-gray-400">
                       Category: {categoryId.name}
                     </span>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                    <span className="text-xl text-gray-600 dark:text-gray-400">
                       Manufacturer: {manufacturerId.name}
                     </span>
                   </div>
@@ -128,14 +136,14 @@ export default async function Products({ params }) {
                 {/* Back Button */}
                 <Link
                   href={"/get-deal"}
-                  className="mt-4 py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                  className="mt-4 py-2 px-4 bg-blue-700 text-white rounded-lg hover:bg-blue-800 text-center"
                   // onClick={() => window.history.back()}
                 >
-                  Get Best Deal
+                  Yes! I am interested
                 </Link>
               </div>
             </div>
-            {/* <BestDealForm /> */}
+            <BestDealForm />
           </div>
         </section>
       </div>

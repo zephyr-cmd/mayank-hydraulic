@@ -29,9 +29,10 @@ const schema = new mongoose.Schema(
       lowercase: true,
       match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, // Email pattern validation
     },
-    images: {
+    image: {
       type: String,
     },
+    description: String,
     saleLead: {
       type: Boolean,
       default: false,
