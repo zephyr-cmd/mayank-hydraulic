@@ -102,7 +102,7 @@ export async function createFreeConsultation(prevState, formData) {
     }
   } catch (e) {
     console.log(`L-83, error form server component : ${e}`);
-    return { message: `Failed to create second openion` };
+    return { message: `Failed to register` };
   }
 }
 
