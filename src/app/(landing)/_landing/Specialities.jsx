@@ -98,7 +98,7 @@ function Specialities() {
           </Link>
         ))}
       </div>
-      <Link href="#">
+      <Link href="/our-products">
         <Button>Load More...</Button>
       </Link>
     </section>

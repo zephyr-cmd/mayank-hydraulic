@@ -53,13 +53,13 @@ export default function Footer() {
               <Link className="hover:text-gray-300" href="/" aria-label="Home">
                 Home
               </Link>
-              <Link
+              {/* <Link
                 className="hover:text-gray-300"
                 href="/coming-soon"
                 aria-label="Testimonial"
               >
                 Testimonial
-              </Link>
+              </Link> */}
               <Link
                 className="hover:text-gray-300"
                 href="/about-us"
@@ -103,18 +103,18 @@ export default function Footer() {
                 href="/#locations"
                 aria-label="piston-pump"
               >
-                Piston Pump
+                Axial Piston Motor
               </Link>
-              <Link
+              {/* <Link
                 className="hover:text-gray-300"
                 href="/#locations"
                 aria-label="Servo-pump"
               >
                 Servo Pump
-              </Link>
+              </Link> */}
               <Link
                 className="hover:text-gray-300"
-                href="/#more"
+                href="/our-products"
                 aria-label="more"
               >
                 More++

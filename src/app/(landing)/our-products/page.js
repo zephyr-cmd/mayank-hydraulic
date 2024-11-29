@@ -58,7 +58,7 @@ export default async function Products() {
             {data.categories.map((category) => (
               <div
                 key={category._id}
-                className="flex flex-col md:flex-row bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full h-full"
+                className="flex flex-col md:flex-row bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full h-full sm:min-h-[200px]"
               >
                 {/* Left Part - Category Image and Name */}
                 <div className="flex flex-col items-start justify-center w-full md:w-1/4 p-5 overflow-hidden">
@@ -73,16 +73,16 @@ export default async function Products() {
                     height={150}
                     className="object-cover rounded-lg"
                   />
-                  <h2 className="text-lg font-bold text-center mt-2 text-gray-900 dark:text-white">
+                  {/* <h2 className="text-lg font-bold text-center mt-2 text-gray-900 dark:text-white">
                     {category.name}
-                  </h2>
+                  </h2> */}
                 </div>
                 {/* Right Part - List of Products */}
-                <div className="flex flex-col md:w-3/4">
+                <div className="flex flex-col md:w-3/4 sm:mt-5">
                   <h5 className="my-2 px-5 text-xl font-semibold text-left text-gray-900 dark:text-white">
-                    Products
+                    {category.name}
                   </h5>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 p-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 pl-5 pb-5">
                     {category.products.length > 0 ? (
                       category.products.map((product, index) => (
                         <div key={index}>
