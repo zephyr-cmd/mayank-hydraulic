@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { DBConnect } from "@/lib/database/db";
 import ClientDB from "@/lib/database/Model/clientDB";
+import { jwtTokenVerification } from "@/components/helper/utils";
+import userDB from "@/lib/database/Model/userDB";
 
 // create free-consultation user
 export async function POST(request) {
@@ -38,7 +40,7 @@ export async function POST(request) {
       phoneNumber: data?.phoneNumber,
       email: data?.email,
       description: data?.description,
-      reqestRaiseFrom: data?.reqestRaiseFrom,
+      requestRaiseFrom: data?.requestRaiseFrom,
       saleLead: true,
     });
 
@@ -55,6 +57,70 @@ export async function POST(request) {
     console.error("Error creating entity:", error);
     return NextResponse.json(
       { status: 500, message: "Something went wrong." },
+      { status: 500 }
+    );
+  }
+}
+export async function GET(request) {
+  await DBConnect();
+  const authHeader = await request?.headers?.get("authorization");
+
+  if (!authHeader) {
+    return NextResponse.json(
+      {
+        message: "No Token Found.",
+      },
+      { status: 401 }
+    );
+  }
+
+  try {
+    let jwtVerificaiton = jwtTokenVerification(authHeader);
+    if (!jwtVerificaiton.success) {
+      return NextResponse.json(
+        {
+          message: "Token verification failed",
+        },
+        { status: 401 }
+      );
+    }
+
+    let authorizedUser = await userDB.exists({
+      _id: jwtVerificaiton?.decoded?.userId,
+      token: authHeader.split(" ")[1],
+      role: "admin",
+    });
+
+    if (!authorizedUser) {
+      return NextResponse.json(
+        {
+          message: "You are not authorized to access this Route",
+        },
+        { status: 403 }
+      );
+    }
+
+    // const data = await request.json();
+    const clientData = await ClientDB.find({})
+      .sort({ createdAt: -1 })
+      .limit(15)
+      .select("countryCode name email phoneNumber requestRaiseFrom description")
+      .lean();
+
+    return NextResponse.json(
+      {
+        status: 200,
+        clientData: clientData,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.log("L-114, error :", error);
+    return NextResponse.json(
+      {
+        status: 500,
+        message: "Something Went Wrong",
+      },
       { status: 500 }
     );
   }

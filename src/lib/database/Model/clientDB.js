@@ -37,7 +37,7 @@ const schema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    reqestRaiseFrom: { type: String },
+    requestRaiseFrom: { type: String },
   },
   { timestamps: true }
 );

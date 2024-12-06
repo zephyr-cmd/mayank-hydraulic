@@ -26,8 +26,8 @@ export default function ContactUsForm() {
       <form className="space-y-4 flex-grow" action={formAction}>
         <input
           type="hidden"
-          id="reqestRaiseFrom"
-          name="reqestRaiseFrom"
+          id="requestRaiseFrom"
+          name="requestRaiseFrom"
           value="Contact Us"
         />
         <div className="flex flex-col md:flex-row gap-5">

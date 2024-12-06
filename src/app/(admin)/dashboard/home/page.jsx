@@ -1,84 +1,110 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Modal, Modal1 } from "@/components/helper/Modal";
-import { EditProfile } from "../../_resources/modalForm/editProfile";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Logout } from "../_utils/logout";
 
 function Home() {
-  const [currentModal, setCurrentModal] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalOpen1, setIsModalOpen1] = useState(false);
-  const [userData, setUserData] = useState([]);
-  const [youTubeLink, setYouTubeLink] = useState("");
-  useEffect(() => {
-    async function getData() {
-      try {
-        const _id = localStorage.getItem("_id");
-        console.log("L-18, userId------->", _id);
-        let response = await fetch(`/api/v1/admin/user/${_id}`);
-        let fetchedData = await response.json();
-        console.log("L-21, fetchedData", fetchedData);
+  const [status, setStatus] = useState([]);
+  const [clientData, setClientData] = useState([]);
 
-        if (fetchedData?.status === 200) {
-          setUserData(fetchedData?.data);
-
-          const videoId = fetchedData?.data?.youtubeLink?.split("v=")[1];
-          const embedLink = videoId
-            ? `https://www.youtube.com/embed/${videoId}`
-            : "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"; // Replace with your default or fallback video
-
-          setYouTubeLink(embedLink);
-        }
-      } catch (error) {
-        console.log("L-32, something went wrong ??", error);
+  let fetchedData = useCallback(async (token) => {
+    try {
+      let response = await fetch(`/api/v2/client/free-consultation`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      let data = await response.json();
+      setClientData(data?.clientData);
+      // console.log("L-29, fetchedData---------->", data?.clientData, clientData);
+      if (response.status == 401 || response.status == 500) {
+        setStatus(response.status);
+        setMessage(data.message);
+        localStorage.clear();
+        Logout();
+        return;
+      } else if (response.status == 403) {
+        setStatus(response.status);
+        setMessage("Token expired, Kindly logout & login again !");
+        return;
+      } else {
+        setStatus(response.status);
       }
+    } catch (error) {
+      throw new Error("Bad fetch response");
     }
-
-    getData();
   }, []);
 
-  const handleEditSelection = (modalComponent) => {
-    setCurrentModal(modalComponent);
-    setIsModalOpen(true);
-  };
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    fetchedData(token);
+  }, [fetchedData]);
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setIsModalOpen1(false);
-    // fetchAppointments();
-  };
+  if (status !== 200) {
+    return (
+      <div>
+        <h1
+          className="flex flex-col justify-center items-center h-dvh
+         font-bold text-center dark:text-white"
+        >
+          <p className="text-2xl font-bold text-red-700 text-center">
+            {status}
+          </p>
+          {/* {message} */}
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div>
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-        <Button
-          variant="projectbtn1"
-          onClick={() => handleEditSelection(<EditProfile />)}
-        >
-          Edit Profile
-        </Button>
-        <div className="flex flex-col items-center justify-center gap-5">
-          <div> Description : {userData?.message}</div>
-          {youTubeLink && (
-            <iframe
-              width="560"
-              height="315"
-              src={youTubeLink}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          )}
+        <div className="flex flex-col items-center justify-center gap-5 dark:text-white">
+          <Table>
+            <TableCaption>List of your recent Client Requests.</TableCaption>
+            <TableHeader>
+              <TableRow className="dark:text-white">
+                <TableHead className="w-[100px]">Country Code</TableHead>
+                <TableHead className="w-[150px]">Mobile Number</TableHead>
+                <TableHead className="w-[150px]">Name</TableHead>
+                <TableHead className="w-[200px]">Email</TableHead>
+                <TableHead className="w-[150px]">Request From</TableHead>
+                <TableHead className="">Description</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {clientData.map((client) => (
+                <TableRow key={client._id}>
+                  <TableCell className="font-medium">
+                    {client.countryCode}
+                  </TableCell>
+                  <TableCell>{client.phoneNumber}</TableCell>
+                  <TableCell>{client.name}</TableCell>
+                  <TableCell>{client.email}</TableCell>
+                  <TableCell>{client.requestRaiseFrom}</TableCell>
+                  <TableCell className="">{client.description}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+            {/* <TableFooter>
+              <TableRow>
+                <TableCell colSpan={3}>Total</TableCell>
+                <TableCell className="text-right">$2,500.00</TableCell>
+              </TableRow>
+            </TableFooter> */}
+          </Table>
         </div>
       </main>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        {currentModal}
-      </Modal>
-      <Modal1 isOpen={isModalOpen1} onClose={handleCloseModal}>
-        {currentModal}
-      </Modal1>
     </div>
   );
 }

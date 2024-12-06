@@ -47,8 +47,8 @@ const BestDealForm = () => {
           <div className="space-y-4 w-full">
             <input
               type="hidden"
-              id="reqestRaiseFrom"
-              name="reqestRaiseFrom"
+              id="requestRaiseFrom"
+              name="requestRaiseFrom"
               value="Product Page"
             />
             {/* Country Code and Name Fields */}
