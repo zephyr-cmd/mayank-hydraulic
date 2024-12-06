@@ -45,6 +45,12 @@ const BestDealForm = () => {
           </h2>
 
           <div className="space-y-4 w-full">
+            <input
+              type="hidden"
+              id="reqestRaiseFrom"
+              name="reqestRaiseFrom"
+              value="Product Page"
+            />
             {/* Country Code and Name Fields */}
             <div className="flex flex-col md:flex-row gap-5 w-full">
               <div className="flex  items-center border border-gray-300 rounded-lg p-2 w-full md:w-1/2 focus-within:border-blue-500">

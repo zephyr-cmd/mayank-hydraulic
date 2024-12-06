@@ -24,6 +24,12 @@ export default function ContactUsForm() {
     <section>
       <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
       <form className="space-y-4 flex-grow" action={formAction}>
+        <input
+          type="hidden"
+          id="reqestRaiseFrom"
+          name="reqestRaiseFrom"
+          value="Contact Us"
+        />
         <div className="flex flex-col md:flex-row gap-5">
           {/* Country Code Dropdown */}
           <div className="w-full md:w-1/3">

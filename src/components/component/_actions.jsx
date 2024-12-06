@@ -62,6 +62,7 @@ export async function createFreeConsultation(prevState, formData) {
       email: z.string().email({ message: "Invalid email address" }).optional(),
       name: z.string().optional(),
       description: z.string().optional(),
+      reqestRaiseFrom: z.string().optional(),
     })
     .superRefine((data, ctx) => {
       // Check if either phoneNumber or email is provided
@@ -78,6 +79,7 @@ export async function createFreeConsultation(prevState, formData) {
     email: formData.get("email") ?? undefined,
     name: formData.get("name") ?? undefined,
     description: formData.get("description") ?? undefined,
+    reqestRaiseFrom: formData.get("reqestRaiseFrom") ?? undefined,
   });
   // console.log("L-78, validateFields: ", validatedFields.success);
   if (!validatedFields.success) {

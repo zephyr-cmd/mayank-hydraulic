@@ -56,6 +56,12 @@ export function Parallax() {
               action={formAction}
             >
               <div className="flex flex-col gap-5 w-full md:px-32 container mx-auto">
+                <Input
+                  type="hidden"
+                  id="reqestRaiseFrom"
+                  name="reqestRaiseFrom"
+                  value="Free Consultation"
+                />
                 <div className="flex flex-col sm:flex-row w-full items-center gap-3">
                   {/* Country Code Dropdown */}
                   <div className="w-full sm:w-1/4">
