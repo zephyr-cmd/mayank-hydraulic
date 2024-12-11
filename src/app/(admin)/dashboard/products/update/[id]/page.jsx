@@ -167,11 +167,11 @@ export default function UpdateProduct() {
     }
   };
 
-  // console.log("L-143, formData-------------->", formData);
+  console.log("L-143, formData-------------->", formData?.categoryId?.name);
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-semibold mb-4">
-        Update - {`${formData?.name}`}
+        Update : {`${formData?.name}`}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="flex flex-row gap-5">
@@ -206,7 +206,7 @@ export default function UpdateProduct() {
 
         <div className="flex flex-col sm:flex-row sm:space-x-4 gap-4">
           <select
-            value={formData.categoryId}
+            value={formData?.categoryId?._id}
             onChange={(e) =>
               setFormData({ ...formData, categoryId: e.target.value })
             }
@@ -220,7 +220,7 @@ export default function UpdateProduct() {
             ))}
           </select>
           <select
-            value={formData.manufacturerId}
+            value={formData?.manufacturerId?._id}
             onChange={(e) =>
               setFormData({ ...formData, manufacturerId: e.target.value })
             }
@@ -266,9 +266,8 @@ export default function UpdateProduct() {
               <button
                 type="button"
                 onClick={() => handleRemoveSpecification(index)}
-                className="text-red-500 font-bold"
               >
-                X
+                ❌
               </button>
             </div>
           ))}
@@ -298,12 +297,8 @@ export default function UpdateProduct() {
                 className="w-full p-2 border rounded"
                 required
               />
-              <button
-                type="button"
-                onClick={() => handleRemoveImage(index)}
-                className="text-red-500 font-bold"
-              >
-                X
+              <button type="button" onClick={() => handleRemoveImage(index)}>
+                ❌
               </button>
             </div>
           ))}
@@ -322,7 +317,7 @@ export default function UpdateProduct() {
           <input
             type="number"
             placeholder="Quantity in Stock"
-            value={formData.inventory.quantity_in_stock}
+            value={formData?.inventory?.quantity_in_stock}
             onChange={(e) =>
               setFormData({
                 ...formData,
@@ -338,7 +333,7 @@ export default function UpdateProduct() {
           <input
             type="number"
             placeholder="Lead Time (days)"
-            value={formData.inventory.lead_time_days}
+            value={formData?.inventory?.lead_time_days}
             onChange={(e) =>
               setFormData({
                 ...formData,
@@ -358,7 +353,7 @@ export default function UpdateProduct() {
           <label className="flex items-center">
             <input
               type="checkbox"
-              checked={formData.isPopular}
+              checked={formData?.isPopular}
               onChange={(e) =>
                 setFormData({ ...formData, isPopular: e.target.checked })
               }
