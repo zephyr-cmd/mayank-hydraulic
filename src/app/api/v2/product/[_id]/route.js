@@ -5,6 +5,7 @@ import UserDB from "@/lib/database/Model/userDB";
 import { jwtTokenVerification } from "@/components/helper/utils";
 import CategoryDB from "@/lib/database/Model/categoryDB";
 import ManufacturerDB from "@/lib/database/Model/manufacturerDB";
+import userDB from "@/lib/database/Model/userDB";
 
 // Fetch the product details by ID, including category and manufacturer references
 export async function GET(request, content) {
@@ -53,7 +54,7 @@ export async function GET(request, content) {
 export async function PUT(request, { params }) {
   await DBConnect();
   const authHeader = request?.headers?.get("authorization");
-  const { productId } = params; // Get productId from route params
+  const { _id } = params; // Get productId from route params
 
   if (!authHeader) {
     return NextResponse.json({ message: "No Token Found." }, { status: 401 });
@@ -68,7 +69,7 @@ export async function PUT(request, { params }) {
       );
     }
 
-    const authorizedUser = await employeeDB.exists({
+    const authorizedUser = await userDB.exists({
       _id: jwtVerification?.decoded?.userId,
       token: authHeader.split(" ")[1],
       role: "admin",
@@ -107,7 +108,7 @@ export async function PUT(request, { params }) {
     }
 
     const updatedProduct = await ProductDB.findByIdAndUpdate(
-      productId,
+      _id,
       { $set: data },
       { new: true } // Returns the updated document
     );

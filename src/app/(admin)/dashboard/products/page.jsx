@@ -143,13 +143,13 @@ export default function ProductsPage() {
               <p className="text-gray-600">
                 Category: {product.categoryId?.name || "N/A"}
               </p>
-              <div className="flex justify-between mt-4">
-                <button
-                  onClick={() => alert(`Update product ${product._id}`)}
-                  className="bg-yellow-400 text-black px-3 py-1 rounded"
+              <div className="flex flex-col sm:flex-row justify-between gap-2 mt-4">
+                <Link
+                  href={`/dashboard/products/update/${product._id}`}
+                  className="bg-yellow-400 text-black px-3 py-1 rounded text-center"
                 >
                   Update
-                </button>
+                </Link>
                 <button
                   onClick={() => handleDeleteClick(product._id)}
                   className="bg-red-500 text-white px-3 py-1 rounded"
