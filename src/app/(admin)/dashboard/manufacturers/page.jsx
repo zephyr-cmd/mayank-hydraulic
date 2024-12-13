@@ -70,7 +70,7 @@ export default function ManufacturersPage() {
   return (
     <div className="container mx-auto p-4">
       {/* Top Section */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 px-5">
         <span className="text-lg font-semibold">
           Total Manufacturers / {totalDocs}
         </span>
@@ -82,7 +82,8 @@ export default function ManufacturersPage() {
       </div>
 
       {/* Manufacturer Cards */}
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 px-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 px-5"> */}
         {loading ? (
           <p className="p-5 text-blue-700 min-h-[500px]">
             Loading manufacturers...
@@ -123,14 +124,12 @@ export default function ManufacturersPage() {
                 Products: {manufacturer?.products?.length}
               </p>
               <div className="flex flex-col sm:flex-row justify-between gap-2 mt-4">
-                <button
-                  onClick={() =>
-                    alert(`Update manufacturer ${manufacturer._id}`)
-                  }
-                  className="bg-yellow-400 text-black px-3 py-1 rounded"
+                <Link
+                  href={`/dashboard/manufacturers/update/${manufacturer._id}`}
+                  className="bg-yellow-400 text-black text-center px-3 py-1 rounded"
                 >
                   Update
-                </button>
+                </Link>
                 <button
                   onClick={() => handleDeleteClick(manufacturer._id)}
                   className="bg-red-500 text-white px-3 py-1 rounded"

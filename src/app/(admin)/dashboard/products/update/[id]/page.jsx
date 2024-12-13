@@ -2,9 +2,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/app/(admin)/dashboard/_utils/AuthContext";
 import { toast } from "sonner";
-import { useParams } from "next/navigation";
-// import { useParams } from "react-router-dom"; // Assuming React Router is used
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 export default function UpdateProduct() {
   const initialFormValue = {
@@ -26,7 +24,6 @@ export default function UpdateProduct() {
   const { token } = useAuth();
   const params = useParams();
   const router = useRouter();
-  // const { id } = "670e62707baa7a25c34f8096"; // Assuming `id` is passed as a route parameter
   const { id } = params; // Assuming `id` is passed as a route parameter
 
   useEffect(() => {

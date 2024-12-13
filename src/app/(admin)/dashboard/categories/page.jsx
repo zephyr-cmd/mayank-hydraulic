@@ -118,12 +118,12 @@ export default function CategoriesPage() {
                 Products: {category.products.length}
               </p>
               <div className="flex flex-col sm:flex-row justify-between gap-2 mt-4">
-                <button
-                  onClick={() => alert(`Update category ${category._id}`)}
-                  className="bg-yellow-400 text-black px-3 py-1 rounded"
+                <Link
+                  href={`/dashboard/categories/update/${category._id}`}
+                  className="bg-yellow-400 text-black text-center px-3 py-1 rounded"
                 >
                   Update
-                </button>
+                </Link>
                 <button
                   onClick={() => handleDeleteClick(category._id)}
                   className="bg-red-500 text-white px-3 py-1 rounded"
