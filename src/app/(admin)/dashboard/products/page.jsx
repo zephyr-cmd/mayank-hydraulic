@@ -99,7 +99,7 @@ export default function ProductsPage() {
   return (
     <div className="container mx-auto p-4">
       {/* Top Section: Product Info and Create Button */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 px-5">
         <span className="text-lg font-semibold">
           Products {products.length} / {totalDocs}
         </span>
@@ -113,7 +113,7 @@ export default function ProductsPage() {
       {/* Product Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {loading ? (
-          <p>Loading products...</p>
+          <p className="p-5 text-blue-700 min-h-[500px]">Loading products...</p>
         ) : (
           products.map((product) => (
             <div

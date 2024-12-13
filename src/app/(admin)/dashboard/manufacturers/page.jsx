@@ -72,7 +72,7 @@ export default function ManufacturersPage() {
       {/* Top Section */}
       <div className="flex justify-between items-center mb-4">
         <span className="text-lg font-semibold">
-          Total Manufacturers = {totalDocs}
+          Total Manufacturers / {totalDocs}
         </span>
         <Link href="manufacturers/create-new-manufacturer">
           <button className="bg-blue-500 text-white px-4 py-2 rounded">
@@ -82,9 +82,11 @@ export default function ManufacturersPage() {
       </div>
 
       {/* Manufacturer Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 px-5">
         {loading ? (
-          <p>Loading manufacturers...</p>
+          <p className="p-5 text-blue-700 min-h-[500px]">
+            Loading manufacturers...
+          </p>
         ) : (
           manufacturers.map((manufacturer) => (
             <div
@@ -120,7 +122,7 @@ export default function ManufacturersPage() {
               <p className="text-gray-600">
                 Products: {manufacturer?.products?.length}
               </p>
-              <div className="flex justify-between mt-4">
+              <div className="flex flex-col sm:flex-row justify-between gap-2 mt-4">
                 <button
                   onClick={() =>
                     alert(`Update manufacturer ${manufacturer._id}`)

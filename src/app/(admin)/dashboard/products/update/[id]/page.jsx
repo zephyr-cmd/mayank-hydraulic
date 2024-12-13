@@ -4,6 +4,7 @@ import { useAuth } from "@/app/(admin)/dashboard/_utils/AuthContext";
 import { toast } from "sonner";
 import { useParams } from "next/navigation";
 // import { useParams } from "react-router-dom"; // Assuming React Router is used
+import { useRouter } from "next/navigation";
 
 export default function UpdateProduct() {
   const initialFormValue = {
@@ -24,6 +25,7 @@ export default function UpdateProduct() {
   const [manufacturers, setManufacturers] = useState([]);
   const { token } = useAuth();
   const params = useParams();
+  const router = useRouter();
   // const { id } = "670e62707baa7a25c34f8096"; // Assuming `id` is passed as a route parameter
   const { id } = params; // Assuming `id` is passed as a route parameter
 
@@ -53,13 +55,7 @@ export default function UpdateProduct() {
         },
         isPopular: product?.isPopular || false,
       });
-      console.log(
-        "L-38, product---------------->",
-        params,
-        product
-        // "&&&&&&&",
-        // productData?.product
-      );
+      // console.log("L-56, product---------------->", product);
       if (response.ok) {
         setProduct(productData); // Correctly update product state
         const product = productData?.product; // Safely extract product
@@ -146,7 +142,6 @@ export default function UpdateProduct() {
           lead_time_days: parseInt(formData.inventory.lead_time_days, 10) || 0,
         },
       };
-      console.log("L-146, handleSubmit--------->", token);
       const response = await fetch(`/api/v2/product/${id}`, {
         method: "PUT",
         headers: {
@@ -161,13 +156,14 @@ export default function UpdateProduct() {
       }
 
       toast("Product updated successfully", {});
+      router.push("/dashboard/products");
     } catch (error) {
       console.error(error);
       toast(`${error}`, { type: "error" });
     }
   };
 
-  console.log("L-143, formData-------------->", formData?.categoryId?.name);
+  // console.log("L-143, formData-------------->", formData);
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-semibold mb-4">
