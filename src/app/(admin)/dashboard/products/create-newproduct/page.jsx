@@ -3,6 +3,21 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/app/(admin)/dashboard/_utils/AuthContext";
 import { toast } from "sonner";
 import { RefreshIcon } from "@/components/icons/icons2";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { ChevronDownIcon, SlashIcon } from "@radix-ui/react-icons";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function CreateProduct() {
   const intialFormVaule = {
@@ -114,7 +129,50 @@ export default function CreateProduct() {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-semibold mb-4">Create New Product</h2>
+      <div className="flex flex-col gap-2 mb-7 justify-between">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/dashboard">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator>
+              <SlashIcon />
+            </BreadcrumbSeparator>
+            <BreadcrumbItem>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1">
+                  Components
+                  <ChevronDownIcon />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  <DropdownMenuItem>
+                    <BreadcrumbLink href="/dashboard/products">
+                      Products
+                    </BreadcrumbLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <BreadcrumbLink href="/dashboard/categories">
+                      Categories
+                    </BreadcrumbLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <BreadcrumbLink href="/dashboard/manufacturers">
+                      Manufacturers
+                    </BreadcrumbLink>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator>
+              <SlashIcon />
+            </BreadcrumbSeparator>
+            <BreadcrumbItem>
+              <BreadcrumbPage>Create Product</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        {/* <h2 className="text-2xl font-semibold mb-4">Create New Product</h2> */}
+      </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Product Name */}
         <div className="flex flex-row gap-5">

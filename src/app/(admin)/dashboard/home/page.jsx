@@ -11,6 +11,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Logout } from "../_utils/logout";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { ChevronDownIcon, SlashIcon } from "@radix-ui/react-icons";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 function Home() {
   const [status, setStatus] = useState([]);
@@ -69,6 +84,44 @@ function Home() {
   return (
     <div>
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 px-5">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbPage>Home</BreadcrumbPage>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator>
+                <SlashIcon />
+              </BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center gap-1">
+                    Components
+                    <ChevronDownIcon />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start">
+                    <DropdownMenuItem>
+                      <BreadcrumbLink href="/dashboard/products">
+                        Products
+                      </BreadcrumbLink>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <BreadcrumbLink href="/dashboard/categories">
+                        Categories
+                      </BreadcrumbLink>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <BreadcrumbLink href="/dashboard/manufacturers">
+                        Manufacturers
+                      </BreadcrumbLink>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          <span className="text-lg font-semibold dark:text-white">Home</span>
+        </div>
         <div className="flex flex-col items-center justify-center gap-5 dark:text-white">
           <Table>
             <TableCaption>List of your recent Client Requests.</TableCaption>

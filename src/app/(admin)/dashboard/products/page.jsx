@@ -6,6 +6,21 @@ import Image from "next/image";
 import { useAuth } from "@/app/(admin)/dashboard/_utils/AuthContext";
 import DeleteConfirmationModal from "@/app/(admin)/_resources/modalForm/DeleteConfirmationModal";
 import { toast } from "sonner";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { ChevronDownIcon, SlashIcon } from "@radix-ui/react-icons";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -100,8 +115,45 @@ export default function ProductsPage() {
     <div className="container mx-auto p-4">
       {/* Top Section: Product Info and Create Button */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 px-5">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/dashboard">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator>
+              <SlashIcon />
+            </BreadcrumbSeparator>
+            <BreadcrumbItem>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1">
+                  Components
+                  <ChevronDownIcon />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  <DropdownMenuItem>Products</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <BreadcrumbLink href="/dashboard/categories">
+                      Categories
+                    </BreadcrumbLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <BreadcrumbLink href="/dashboard/manufacturers">
+                      Manufacturers
+                    </BreadcrumbLink>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator>
+              <SlashIcon />
+            </BreadcrumbSeparator>
+            <BreadcrumbItem>
+              <BreadcrumbPage>Products</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
         <span className="text-lg font-semibold">
-          Products {products.length} / {totalDocs}
+          Products : {products.length} / {totalDocs}
         </span>
         <Link href="products/create-newproduct">
           <button className="bg-blue-500 text-white px-4 py-2 rounded">
