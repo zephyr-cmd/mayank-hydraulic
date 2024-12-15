@@ -32,12 +32,12 @@ const BestDealForm = () => {
   }, [state.message]);
 
   return (
-    <div className="bg-gray-100 p-8">
+    <div className="md:p-8">
       <div className="bg-white shadow-lg flex flex-col-reverse sm:flex-row container mx-auto rounded-lg p-8">
         {/* Form Section */}
 
         <form
-          className="p-8 my-2 sm:my-0 w-full sm:w-2/3 rounded-lg"
+          className="py-2 md:p-8 my-2 sm:my-0 w-full sm:w-2/3 rounded-lg"
           action={formAction}
         >
           <h2 className="text-xl font-bold text-gray-800 mb-4">

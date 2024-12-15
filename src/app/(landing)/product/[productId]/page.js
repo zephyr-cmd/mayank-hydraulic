@@ -65,7 +65,7 @@ export default async function Products({ params }) {
         <section>
           {/* <ProductDetails productId={productId} /> */}
           <div className="w-full h-fit">
-            <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 overflow-auto p-4">
+            <div className="flex flex-col lg:flex-row overflow-auto p-4">
               {/* Left Section - Product Image */}
               <div className="w-full lg:w-1/2 flex items-center justify-center">
                 <Image
@@ -135,7 +135,7 @@ export default async function Products({ params }) {
 
                 {/* Back Button */}
                 <Link
-                  href={"/get-deal"}
+                  href={"/#get-deal"}
                   className="mt-4 py-2 px-4 bg-blue-700 text-white rounded-lg hover:bg-blue-800 text-center"
                   // onClick={() => window.history.back()}
                 >
@@ -143,7 +143,9 @@ export default async function Products({ params }) {
                 </Link>
               </div>
             </div>
-            <BestDealForm />
+            <div className="p-5 bg--400">
+              <BestDealForm />
+            </div>
           </div>
         </section>
       </div>

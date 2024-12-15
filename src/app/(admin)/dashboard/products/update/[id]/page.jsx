@@ -175,7 +175,7 @@ export default function UpdateProduct() {
     }
   };
 
-  // console.log("L-143, formData-------------->", formData);
+  // console.log("L-178, formData-------------->", formData);
   return (
     <div className="container mx-auto p-4">
       <div className="flex flex-col gap-2 justify-between">
